@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjtu.qa.mapper.QuestionMapper">
+  <resultMap id="BaseResultMap" type="com.xjtu.qa.pojo.Question">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="creationtime" jdbcType="VARCHAR" property="creationtime" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="c1id" jdbcType="INTEGER" property="c1id" />
+    <result column="c2id" jdbcType="INTEGER" property="c2id" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, content, creationtime, userid, c1id, c2id
+  </sql>
+  <select id="selectByExample" parameterType="com.xjtu.qa.pojo.QuestionExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from question
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from question
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from question
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.xjtu.qa.pojo.Question" useGeneratedKeys="true">
+    insert into question (content, creationtime, userid, 
+      c1id, c2id)
+    values (#{content,jdbcType=VARCHAR}, #{creationtime,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, 
+      #{c1id,jdbcType=INTEGER}, #{c2id,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.xjtu.qa.pojo.Question" useGeneratedKeys="true">
+    insert into question
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        content,
+      </if>
+      <if test="creationtime != null">
+        creationtime,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="c1id != null">
+        c1id,
+      </if>
+      <if test="c2id != null">
+        c2id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="creationtime != null">
+        #{creationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="c1id != null">
+        #{c1id,jdbcType=INTEGER},
+      </if>
+      <if test="c2id != null">
+        #{c2id,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xjtu.qa.pojo.Question">
+    update question
+    <set>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="creationtime != null">
+        creationtime = #{creationtime,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="c1id != null">
+        c1id = #{c1id,jdbcType=INTEGER},
+      </if>
+      <if test="c2id != null">
+        c2id = #{c2id,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xjtu.qa.pojo.Question">
+    update question
+    set content = #{content,jdbcType=VARCHAR},
+      creationtime = #{creationtime,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=INTEGER},
+      c1id = #{c1id,jdbcType=INTEGER},
+      c2id = #{c2id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
