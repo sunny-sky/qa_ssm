@@ -1,6 +1,10 @@
 package com.xjtu.qa.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,16 +25,23 @@ public class RptProblemController {
 	@Autowired
 	RptProblemService rptProblemService;
 	
-	 @RequestMapping("admin_rptproblem_list")
-	    public String list(Model model,Page page){
-	        PageHelper.offsetPage(page.getStart(),page.getCount());
-	        List<RptProblem> rps = rptProblemService.list();
-	        rptProblemService.setUser(rps);
-	        rptProblemService.setQuestion(rps);
-	        int total = (int) new PageInfo<>(rps).getTotal();
-	        page.setTotal(total);
-	        model.addAttribute("rps", rps);
-	        model.addAttribute("page", page);
-	        return "admin/listRptProblem";
-	    }
+	@RequestMapping("admin_rptproblem_list")
+ 	public String list(Model model,Page page){
+        PageHelper.offsetPage(page.getStart(),page.getCount());
+        List<RptProblem> rps = rptProblemService.list();
+        rptProblemService.setUser(rps);
+        rptProblemService.setQuestion(rps);
+        int total = (int) new PageInfo<>(rps).getTotal();
+        page.setTotal(total);
+        model.addAttribute("rps", rps);
+        model.addAttribute("page", page);
+        return "admin/listRptProblem";
+    }
+	
+    //删除
+    @RequestMapping("admin_rptproblem_delete")
+    public String delete(int id,HttpSession session) throws IOException {
+    	rptProblemService.delete(id);     
+        return "redirect:/admin_rptproblem_list";
+    }
 }

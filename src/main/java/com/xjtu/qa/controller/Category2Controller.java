@@ -66,9 +66,9 @@ public class Category2Controller {
 	    public String delete(int id,HttpSession session) throws IOException {
 	        category2Service.delete(id);
 	     
-	        File  imageFolder= new File(session.getServletContext().getRealPath("img/category2"));
-	        File file = new File(imageFolder,id+".jpg");
-	        file.delete();
+//	        File  imageFolder= new File(session.getServletContext().getRealPath("img/category2"));
+//	        File file = new File(imageFolder,id+".jpg");
+//	        file.delete();
 	     
 	        return "redirect:/admin_category2_list";
 	    }
