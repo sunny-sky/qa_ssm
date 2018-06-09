@@ -3,6 +3,7 @@ package com.xjtu.qa.service;
 
 import java.util.List;
 
+
 //import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.RptProblem;
 
@@ -14,7 +15,7 @@ public interface RptProblemService {
     RptProblem get(int id);
     List<RptProblem> list();
     void setUser(List<RptProblem> rps);
-//    void setQuestion(List<Question> qs);
+    void setQuestion(List<RptProblem> rps);
 
 
  

@@ -26,6 +26,7 @@ public class RptProblemController {
 	        PageHelper.offsetPage(page.getStart(),page.getCount());
 	        List<RptProblem> rps = rptProblemService.list();
 	        rptProblemService.setUser(rps);
+	        rptProblemService.setQuestion(rps);
 	        int total = (int) new PageInfo<>(rps).getTotal();
 	        page.setTotal(total);
 	        model.addAttribute("rps", rps);

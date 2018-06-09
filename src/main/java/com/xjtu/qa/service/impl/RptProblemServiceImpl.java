@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xjtu.qa.mapper.RptProblemMapper;
-
+import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.RptProblem;
 import com.xjtu.qa.pojo.RptProblemExample;
 import com.xjtu.qa.pojo.User;
+import com.xjtu.qa.service.QuestionService;
 import com.xjtu.qa.service.RptProblemService;
 import com.xjtu.qa.service.UserService;
 
@@ -21,6 +22,8 @@ public class RptProblemServiceImpl implements RptProblemService {
     RptProblemMapper rptProblemMapper;
     @Autowired
     UserService userService;
+    @Autowired
+    QuestionService questionService;
 
    
 
@@ -65,16 +68,16 @@ public class RptProblemServiceImpl implements RptProblemService {
     	rp.setUser(user);
     }
 
-//    @Override
-//    public void setQuestion(List<Question> qs){
-//        for (RptProblem rp: qs) {
-//            setUser(rp);
-//        }
-//    }
-//    
-//    private void setQuestion(RptProblem q) {
-//    	User user = questionService.get(q.getUserid());
-//    	rp.setUser(user);
-//    }
+    @Override
+    public void setQuestion(List<RptProblem> rps){
+        for (RptProblem rp: rps) {
+            setQuestion(rp);
+        }
+    }
+    
+    private void setQuestion(RptProblem rp) {
+    	Question question = questionService.get(rp.getQid());
+    	rp.setQuestion(question);
+    }
     
 }

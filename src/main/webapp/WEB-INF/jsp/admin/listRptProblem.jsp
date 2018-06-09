@@ -1,6 +1,4 @@
-<!-- 模仿天猫整站ssm 教程 为how2j.cn 版权所有-->
-<!-- 本教程仅用于学习使用，切勿用于非法用途，由此引起一切后果与本站无关-->
-<!-- 供购买者学习，请勿私自传播，否则自行承担相关法律责任-->
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8" import="java.util.*" isELIgnored="false"%>
@@ -10,6 +8,13 @@
 <%@include file="../include/admin/adminNavigator.jsp"%>
 
 <script>
+$(function(){
+    $("button.questionContent").click(function(){
+        var rpid = $(this).attr("rpid");
+        $("tr.questionContentTR[rpid="+rpid+"]").toggle();
+    });
+});
+
 </script>
 
 <title>举报管理</title>
@@ -29,7 +34,7 @@
 				<th>用户名</th>
 				<th>问题id</th>
 				<th>备注</th>
-
+				<th width="120px">操作</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -39,7 +44,48 @@
 					<td>${rp.user.name}</td>
 					<td>${rp.qid}</td>
 					<td>${rp.note}</td>
+										<td>
+						<button rpid=${rp.id} class="questionContent btn btn-primary btn-xs">查看详情</button>
 
+<%-- 						<c:if test="${o.status=='waitDelivery'}">
+							<a href="admin_order_delivery?id=${o.id}">
+								<button class="btn btn-primary btn-xs">发货</button>
+							</a>
+						</c:if> --%>
+					</td>
+				</tr>
+				<tr class="questionContentTR"  rpid=${rp.id}>
+					<td colspan="10" align="center">
+
+						<div  class="questionContent">
+							<table width="800px" align="center" class="questionContentTable">
+								<%-- <c:forEach items="${rp.question}" var="rpq"> --%>
+									<tr>
+										<%-- <td align="left">
+											<img width="40px" height="40px" src="img/productSingle/${oi.product.firstProductImage.id}.jpg">
+										</td> --%>
+
+										<td>
+											<a href="forequestion?qid=${rp.question.id}">
+												<span>问题：${rp.question.content}</span>
+											</a>
+										</td>
+										<td align="right">
+
+											<span class="text-muted">一级分类id：${rp.question.c1id}</span>
+										</td>
+										<td align="right">
+
+											<span class="text-muted">二级分类id：${rp.question.c2id}</span>
+										</td>
+
+									</tr>
+							<%-- 	</c:forEach> --%>
+
+							</table>
+						</div>
+
+					</td>
 				</tr>
 			</c:forEach>
 			</tbody>
