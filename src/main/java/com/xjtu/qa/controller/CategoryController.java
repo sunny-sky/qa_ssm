@@ -38,15 +38,7 @@ public class CategoryController {
         model.addAttribute("page", page);
         return "admin/listCategory";
     }
-//    @RequestMapping("admin_category_list")
-//    public String list(Model model,Page page){
-//        List<Category> cs= categoryService.list(page);
-//        int total = categoryService.total();
-//        page.setTotal(total);
-//        model.addAttribute("cs", cs);
-//        model.addAttribute("page", page);
-//        return "admin/listCategory";
-//    }
+
     
     //添加
     @RequestMapping("admin_category_add")

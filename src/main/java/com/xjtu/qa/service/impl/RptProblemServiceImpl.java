@@ -22,7 +22,7 @@ public class RptProblemServiceImpl implements RptProblemService {
     @Autowired
     UserService userService;
 
-    
+   
 
  
     @Override
@@ -52,6 +52,7 @@ public class RptProblemServiceImpl implements RptProblemService {
         example.setOrderByClause("id desc");
         return rptProblemMapper.selectByExample(example);
     }
+    
     @Override
     public void setUser(List<RptProblem> rps){
         for (RptProblem rp: rps) {
@@ -64,6 +65,16 @@ public class RptProblemServiceImpl implements RptProblemService {
     	rp.setUser(user);
     }
 
-
+//    @Override
+//    public void setQuestion(List<Question> qs){
+//        for (RptProblem rp: qs) {
+//            setUser(rp);
+//        }
+//    }
+//    
+//    private void setQuestion(RptProblem q) {
+//    	User user = questionService.get(q.getUserid());
+//    	rp.setUser(user);
+//    }
     
 }

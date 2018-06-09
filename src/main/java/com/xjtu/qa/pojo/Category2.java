@@ -1,17 +1,27 @@
 package com.xjtu.qa.pojo;
 
 public class Category2 {
-    private Integer id;
+    private int id;
 
     private String name;
 
-    private Integer c1id;
+    private int c1id;
+    
+    private Category category;
 
-    public Integer getId() {
+    public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -23,7 +33,7 @@ public class Category2 {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getC1id() {
+    public int getC1id() {
         return c1id;
     }
 
