@@ -12,8 +12,18 @@ public class Question {
     private Integer c1id;
 
     private Integer c2id;
+    
+    private Category category;
 
-    public Integer getId() {
+    public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -60,4 +70,6 @@ public class Question {
     public void setC2id(Integer c2id) {
         this.c2id = c2id;
     }
+
+
 }

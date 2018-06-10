@@ -1,13 +1,16 @@
 package com.xjtu.qa.service.impl;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xjtu.qa.mapper.QuestionMapper;
+import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.QuestionExample;
+import com.xjtu.qa.service.CategoryService;
 import com.xjtu.qa.service.QuestionService;
 
 
@@ -15,6 +18,9 @@ import com.xjtu.qa.service.QuestionService;
 public class QuestionServiceImpl implements QuestionService{
     @Autowired
     QuestionMapper questionMapper;
+    @Autowired
+    CategoryService categoryService;
+
  
     @Override
     public void add(Question q) {
@@ -36,10 +42,29 @@ public class QuestionServiceImpl implements QuestionService{
         return questionMapper.selectByPrimaryKey(id);
     }
  
-    public List<Question> list(){
-        QuestionExample example =new QuestionExample();
-        example.setOrderByClause("id desc");
-        return questionMapper.selectByExample(example);
- 
+    public void setCategory(List<Question> qs){
+        for (Question q : qs)
+            setCategory(q);
     }
+    public void setCategory(Question q){
+        int cid = q.getC1id();
+        Category c = categoryService.get(cid);
+        q.setCategory(c);
+    }
+    
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+    public List list(int cid) {
+    	QuestionExample example = new QuestionExample();
+        example.createCriteria().andC1idEqualTo(cid);
+        example.setOrderByClause("id desc");
+        List result = questionMapper.selectByExample(example);
+        setCategory(result);
+
+        return result;
+    }
+    
+
+    
+
 }

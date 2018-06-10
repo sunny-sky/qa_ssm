@@ -4,6 +4,12 @@
   <resultMap id="BaseResultMap" type="com.xjtu.qa.pojo.Category">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    
+<!--     <collection property="category2" ofType="Category2">
+                <id column="c2id" property="id" />
+                <result column="c2name" property="name" />
+                <result column="c1id" property="c1id" />
+    </collection> -->
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -52,6 +58,9 @@
       order by ${orderByClause}
     </if>
   </select>
+<!--   <select id="selectWithCategory2" parameterType="com.xjtu.qa.pojo.Category" resultMap="BaseResultMap">
+  	select  c2.* from category1 c1 left join category2 c2 on c1.id = c2.c1id
+  </select> -->
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

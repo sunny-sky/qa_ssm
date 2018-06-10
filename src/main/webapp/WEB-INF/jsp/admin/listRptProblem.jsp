@@ -53,7 +53,7 @@
 
 					</td>
 				</tr>
-				<tr class="questionContentTR"  rpid=${rp.id}>
+				<tr class="questionContentTR"  rpid=${rp.id} style="display:none">
 					<td colspan="10" align="center">
 
 						<div  class="questionContent">

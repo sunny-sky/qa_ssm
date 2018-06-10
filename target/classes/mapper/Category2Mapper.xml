@@ -38,6 +38,12 @@
   <sql id="Base_Column_List">
     id, name, c1id
   </sql>
+  <select id="selectByForeignKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from category2
+    where c1id = #{c1id,jdbcType=INTEGER}  
+  </select>
   <select id="selectByExample" parameterType="com.xjtu.qa.pojo.Category2Example" resultMap="BaseResultMap">
     select
     <if test="distinct">

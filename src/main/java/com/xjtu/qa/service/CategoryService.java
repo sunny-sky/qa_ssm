@@ -5,6 +5,7 @@ import java.util.List;
 import com.xjtu.qa.pojo.Category;
 //import com.xjtu.qa.util.Page;
 
+
 public interface CategoryService {
 //    public List<Category> list(Page page);
 //    
@@ -19,4 +20,6 @@ public interface CategoryService {
     Category get(int id);
     
     void update(Category category);
+    
+//    void setCategory2(Category category);
 }

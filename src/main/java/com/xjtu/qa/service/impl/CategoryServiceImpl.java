@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.xjtu.qa.mapper.CategoryMapper;
 import com.xjtu.qa.pojo.Category;
+
 import com.xjtu.qa.pojo.CategoryExample;
 import com.xjtu.qa.service.CategoryService;
 //import com.xjtu.qa.util.Page;
@@ -41,4 +42,12 @@ public class CategoryServiceImpl implements CategoryService {
     public void update(Category category) {
         categoryMapper.updateByPrimaryKeySelective(category);
     }
+    
+//    @Override
+//    public void setCategory2(Category category){
+//    	List<Category2> c2s = categoryMapper.selectWithCategory2(category);
+//    	category.setCategory2s(c2s);
+//    }
+    
+
 }
