@@ -6,11 +6,7 @@
 
 <div id="footer"  class="footer" style="display: block;">
 
-	<div id="footer_ensure" class="footer_ensure">
-		<a href="#nowhere">
-			<img src="img/site/ensure.png">
-		</a>
-	</div>
+	
 
 	<div class="horizontal_line">
 	</div>

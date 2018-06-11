@@ -13,4 +13,6 @@ public interface UserService {
 	List list();
     
     boolean isExist(String name);
+    
+    User get(String name, String password);
 }
