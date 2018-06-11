@@ -6,14 +6,14 @@
 function showProductsAsideCategorys(cid){
 	$("div.eachCategory[cid="+cid+"]").css("background-color","white");
 	$("div.eachCategory[cid="+cid+"] a").css("color","#87CEFA");
-	$("div.ProductsAsideCategorys[cid="+cid+"]").show();
+	$("div.productsAsideCategorys[cid="+cid+"]").show();
 }
 
 
 function hideProductsAsideCategorys(cid){
 	$("div.eachCategory[cid="+cid+"]").css("background-color","#e2e2e3");
 	$("div.eachCategory[cid="+cid+"] a").css("color","#000");
-	$("div.ProductsAsideCategorys[cid="+cid+"]").hide();
+	$("div.productsAsideCategorys[cid="+cid+"]").hide();
 }
 $(function(){
     $("div.eachCategory").mouseenter(function(){
@@ -24,11 +24,11 @@ $(function(){
         var cid = $(this).attr("cid");
         hideProductsAsideCategorys(cid);
     });
-    $("div.ProductsAsideCategorys").mouseenter(function(){
+    $("div.productsAsideCategorys").mouseenter(function(){
     	var cid = $(this).attr("cid");
     	showProductsAsideCategorys(cid);
     });
-    $("div.ProductsAsideCategorys").mouseleave(function(){
+    $("div.productsAsideCategorys").mouseleave(function(){
     	var cid = $(this).attr("cid");
     	hideProductsAsideCategorys(cid);
     });
@@ -47,10 +47,10 @@ $(function(){
 		$("img#catear").hide();
 	});
 	
-	var left = $("div#carousel-of-Product").offset().left;
+	var left = $("div#carousel-of-product").offset().left;
 	$("div.categoryMenu").css("left",left-20);
 	$("div.categoryWithCarousel div.head").css("margin-left",left);
-	$("div.ProductsAsideCategorys").css("left",left-20);
+	$("div.productsAsideCategorys").css("left",left-20);
 	
 	
 });

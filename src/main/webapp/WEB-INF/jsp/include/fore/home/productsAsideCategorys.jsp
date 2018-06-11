@@ -6,7 +6,7 @@
 
 <script>
 $(function(){
-	$("div.ProductsAsideCategorys div.row a").each(function(){
+	$("div.productsAsideCategorys div.row a").each(function(){
 		var v = Math.round(Math.random() *6);
 		if(v == 1)
 			$(this).css("color","#87CEFA");
@@ -15,13 +15,13 @@ $(function(){
 
 </script>
 <c:forEach items="${cs}" var="c">
-    <div cid="${c.id}" class="ProductsAsideCategorys">
+    <div cid="${c.id}" class="productsAsideCategorys">
       
         <c:forEach items="${c.category2sByRow}" var="c2s">
             <div class="row show1">
                 <c:forEach items="${c2s}" var="c2">
                     <c:if test="${!empty c2.name}">
-                        <a href="foreProduct?pid=${c2.id}">
+                        <a href="foreproduct?pid=${c2.id}">
                             <%-- <c:forEach items="${fn:split(c2.name, ' ')}" var="title" varStatus="st">
                                 <c:if test="${st.index==0}"> --%>
                                     ${c2.name}

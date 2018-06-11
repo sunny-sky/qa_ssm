@@ -13,10 +13,10 @@
 	<c:set var="categorycount" scope="page" value="${param.categorycount}"/>
 </c:if>
 
-<div class="homepageCategoryproducts">
+<div class="homepageCategoryProducts">
 	<c:forEach items="${cs}" var="c" varStatus="stc">
 		<c:if test="${stc.count<=categorycount}">
-			<div class="eachHomepageCategoryproducts">
+			<div class="eachHomepageCategoryProducts">
 				<div class="left-mark"></div>
 				<span class="categoryTitle">${c.name}</span>
 				<br>

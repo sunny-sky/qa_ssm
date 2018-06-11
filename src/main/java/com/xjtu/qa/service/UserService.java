@@ -11,4 +11,6 @@ public interface UserService {
     User get(int id);
     @SuppressWarnings("rawtypes")
 	List list();
+    
+    boolean isExist(String name);
 }
