@@ -10,8 +10,11 @@ import com.xjtu.qa.mapper.QuestionMapper;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.QuestionExample;
+import com.xjtu.qa.pojo.UserLike;
+import com.xjtu.qa.service.AnswerService;
 import com.xjtu.qa.service.CategoryService;
 import com.xjtu.qa.service.QuestionService;
+import com.xjtu.qa.service.UserLikeService;
 
 
 @Service
@@ -20,8 +23,11 @@ public class QuestionServiceImpl implements QuestionService{
     QuestionMapper questionMapper;
     @Autowired
     CategoryService categoryService;
-
- 
+    @Autowired
+    UserLikeService userLikeService;
+    @Autowired
+    AnswerService answerService;
+    
     @Override
     public void add(Question q) {
     	questionMapper.insert(q);
@@ -64,7 +70,19 @@ public class QuestionServiceImpl implements QuestionService{
         return result;
     }
     
-
+    @Override
+    public void setAnswerNum(Question q) {
+    	int answerNum = answerService.getCount(q.getId());
+    	answerNum = answerNum + 1;
+    	q.setAnswerNum(answerNum);   
+    }
+    
+    @Override
+	public void setUserLikeNum(UserLike ul){
+    	int userLikeNum = answerService.getCount(ul.getAid());
+    	userLikeNum = userLikeNum + 1;
+    	get(ul.getAid()).setUserLikeNum(userLikeNum);
+    }
     
 
 }

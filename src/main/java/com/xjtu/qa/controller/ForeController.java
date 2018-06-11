@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.HtmlUtils;
 
+import com.xjtu.qa.pojo.Answer;
 import com.xjtu.qa.pojo.Category;
+import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.User;
+import com.xjtu.qa.service.AnswerService;
 import com.xjtu.qa.service.Category2Service;
 import com.xjtu.qa.service.CategoryService;
 import com.xjtu.qa.service.QuestionService;
@@ -30,6 +33,8 @@ public class ForeController {
     UserService userService;
     @Autowired
     Category2Service category2Service;
+    @Autowired
+    AnswerService answerService;
 
 
  
@@ -72,4 +77,25 @@ public class ForeController {
         session.setAttribute("user", user);
         return "redirect:forehome";
     }
+    
+    @RequestMapping("forelogout")
+    public String logout( HttpSession session) {
+        session.removeAttribute("user");
+        return "redirect:forehome";
+    }
+    
+    @RequestMapping("forequestion")
+    public String question(int qid, Model model){
+    	Question q = questionService.get(qid);
+    	
+    	List<Answer> answers = answerService.list(q.getId());
+    	int answerNum = q.getAnswerNum();
+    	int userLikeNum = q.getUserLikeNum();
+    	model.addAttribute("answerNum", answerNum);
+    	model.addAttribute("userLikeNum", userLikeNum);
+    	model.addAttribute("answers", answers);
+    	return "fore/question";
+    	
+    }
 }
+

@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import com.xjtu.qa.pojo.Question;
+import com.xjtu.qa.pojo.UserLike;
 
 
 public interface QuestionService {
@@ -14,5 +15,8 @@ public interface QuestionService {
     @SuppressWarnings("rawtypes")
 	List list(int cid);
 
+    void setAnswerNum(Question q);
+    void setUserLikeNum(UserLike ul);
+    
 
 }

@@ -14,8 +14,28 @@ public class Question {
     private Integer c2id;
     
     private Category category;
+    
+    private int answerNum;
+    
+    private int userLikeNum;
 
-    public Category getCategory() {
+    public int getUserLikeNum() {
+		return userLikeNum;
+	}
+
+	public void setUserLikeNum(int userLikeNum) {
+		this.userLikeNum = userLikeNum;
+	}
+
+	public int getAnswerNum() {
+		return answerNum;
+	}
+
+	public void setAnswerNum(int answerNum) {
+		this.answerNum = answerNum;
+	}
+
+	public Category getCategory() {
 		return category;
 	}
 
