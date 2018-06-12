@@ -43,6 +43,7 @@ public class ForeController {
         List<Category> cs= categoryService.list();        
         category2Service.fill(cs);
         category2Service.fillByRow(cs);
+        questionService.fill(cs);
         model.addAttribute("cs", cs);
         return "fore/home";
     }
@@ -93,6 +94,7 @@ public class ForeController {
     	int userLikeNum = q.getUserLikeNum();
     	model.addAttribute("answerNum", answerNum);
     	model.addAttribute("userLikeNum", userLikeNum);
+    	model.addAttribute("q", q);
     	model.addAttribute("answers", answers);
     	return "fore/question";
     	

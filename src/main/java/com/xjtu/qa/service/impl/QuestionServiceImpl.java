@@ -60,9 +60,9 @@ public class QuestionServiceImpl implements QuestionService{
     
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-    public List list(int cid) {
+    public List list(int c1id) {
     	QuestionExample example = new QuestionExample();
-        example.createCriteria().andC1idEqualTo(cid);
+        example.createCriteria().andC1idEqualTo(c1id);
         example.setOrderByClause("id desc");
         List result = questionMapper.selectByExample(example);
         setCategory(result);
@@ -84,5 +84,21 @@ public class QuestionServiceImpl implements QuestionService{
     	get(ul.getAid()).setUserLikeNum(userLikeNum);
     }
     
+    @Override
+    public void fill(List<Category> cs) {
+        for (Category c : cs) {
+            fill(c);
+        }
+    }
+    
+    @Override
+    public void fill(Category c) {
+        @SuppressWarnings("unchecked")
+		List<Question> qs = list(c.getId());
+        c.setQuestions(qs);
+    }
+    
+   
+
 
 }

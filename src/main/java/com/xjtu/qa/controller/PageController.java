@@ -11,6 +11,7 @@ public class PageController {
         return "fore/register";
     }
     @RequestMapping("registerSuccessPage")
+    
     public String registerSuccessPage() {
         return "fore/registerSuccess";
     }

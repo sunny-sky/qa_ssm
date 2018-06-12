@@ -11,7 +11,17 @@ public class Category {
     
     List<List<Category2>> category2sByRow;   
     
-    public List<Category2> getCategory2s() {
+    List<Question> questions;
+    
+    public List<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
+
+	public List<Category2> getCategory2s() {
 		return category2s;
 	}
 

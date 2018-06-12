@@ -20,13 +20,15 @@
 				<div class="left-mark"></div>
 				<span class="categoryTitle">${c.name}</span>
 				<br>
-				<c:forEach items="${c.category2s}" var="p" varStatus="st">
+				<c:forEach items="${c.questions}" var="q" varStatus="st">
 					<c:if test="${st.count<=5}">
-						<div class="productItem" >
-							<a href="foreproduct?pid=${p.id}">${p.id}</a>
-							<a class="productItemDescLink" href="foreproduct?pid=${p.id}">
-								<span class="productItemDesc">[热搜]
-								${fn:substring(p.name, 0, 20)}
+						<div class="questionItem" >
+							<a href="forequestion?qid=${q.id}">${q.id}</a>
+							<a class="questionItemDescLink" href="forequestion?qid=${q.id}">
+								<span class="questionItemDesc">[热搜]
+								${fn:substring(q.content, 0, 20)}<br/>
+								共有回答：${q.answerNum}个<br/>
+								共收藏：${q.userLikeNum}次
 								</span>
 						    </a>
 							
@@ -39,6 +41,6 @@
 	</c:forEach>
 	
 	
-	<img id="endpng" class="endpng" src="img/site/end.png">
+	
 
 </div>

@@ -272,7 +272,7 @@ span.categoryTitle {
 	font-weight: bold;
 }
 
-div.productItem {
+div.questionItem {
 	width: 189px;
 	height: 285px;
 	border: 1px solid white;
@@ -282,7 +282,7 @@ div.productItem {
 	cursor: pointer;
 }
 
-a.productItemDescLink {
+a.questionItemDescLink {
 	display: inline-block;
 	height: 66px;
 }
@@ -291,7 +291,7 @@ div.productItem:hover {
 	border: 1px solid #C40000;
 }
 
-div.productItem span.productItemDesc {
+div.productItem span.questionItemDesc {
 	font-size: 12px;
 	color: #666666;
 	display: block;
@@ -745,15 +745,19 @@ div.imgInimgAndInfo {
 }
 
 div.infoInimgAndInfo {
+
 	padding: 0px 20px;
-	overflow: hidden;
+	height:40px;
+	overflow: visible;
 }
 
-div.infoInimgAndInfo div.productTitle {
+div.infoInimgAndInfo div.questionTitle {
+
+	text-align: center; 
 	color: black;
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: bold;
-	margin: 0px 10px;
+	margin: 0px 0px;
 }
 
 div.infoInimgAndInfo div.productSubTitle {
@@ -931,7 +935,7 @@ div.infoInimgAndInfo span.serviceCommitmentLink a {
 
 div.productDetailDiv {
 	width: 790px;
-	margin: 40px auto;
+	margin: 120px auto;
 }
 
 div.productReviewDiv {
@@ -2207,12 +2211,12 @@ div.searchResultDiv {
 	min-height: 300px;
 }
 
-div.productPageDiv {
+div.questionPageDiv {
 	max-width: 1013px;
 	margin: 10px auto;
 }
 
-div.categoryPictureInProductPageDiv {
+div.categoryPictureInQuestionPageDiv {
 	width: 100%;
 	margin: 10px auto;
 	text-align: center;
