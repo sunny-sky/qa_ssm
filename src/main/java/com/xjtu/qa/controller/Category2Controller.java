@@ -61,6 +61,7 @@ public class Category2Controller {
 	 
 	        return "redirect:/admin_category2_list";
 	    }
+	    
 	    //删除
 	    @RequestMapping("admin_category2_delete")
 	    public String delete(int id,HttpSession session) throws IOException {
@@ -72,6 +73,7 @@ public class Category2Controller {
 	     
 	        return "redirect:/admin_category2_list";
 	    }
+	    
 	    //编辑
 	    @RequestMapping("admin_category2_edit")
 	    public String edit(int id,Model model) throws IOException {

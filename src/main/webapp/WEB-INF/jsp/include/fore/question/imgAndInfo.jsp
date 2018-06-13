@@ -48,7 +48,7 @@ $(function(){
                                 {"pid":pid,"num":num},
                                 function(result){
                                     if("success"==result){
-                                        $(".addCartButton").html("已加入购物车");
+                                        $(".addCartButton").html("*****");
                                         $(".addCartButton").attr("disabled","disabled");
                                         $(".addCartButton").css("background-color","lightgray")
                                         $(".addCartButton").css("border-color","lightgray")

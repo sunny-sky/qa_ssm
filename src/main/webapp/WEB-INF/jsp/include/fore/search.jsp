@@ -25,3 +25,4 @@
 		</div>
 	</div>
 </form>
+<a href="askQuestion"><button  type="button" >去提问</button></a>

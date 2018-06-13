@@ -6,12 +6,12 @@
 	
 <div class="productDetailDiv" >
 	<div class="productDetailTopPart">
-		<a href="#nowhere" class="productDetailTopPartSelectedLink selected">累计评价 <span class="productDetailTopReviewLinkNumber">${p.reviewCount}</span> </a>
+		<a href="#nowhere" class="productDetailTopPartSelectedLink selected">所有回答 <span class="productDetailTopReviewLinkNumber">${p.reviewCount}</span> </a>
 	</div>
 	
 	
 	<div class="productParamterPart">
-		<div class="productParamter">产品评价：</div>
+		<div class="productParamter">问题回答：</div>
 		
 		<div class="productParamterList">
 			<c:forEach items="${pvs}" var="pv">
