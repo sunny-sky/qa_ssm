@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.HtmlUtils;
 
+import com.github.pagehelper.PageHelper;
 import com.xjtu.qa.pojo.Answer;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Question;
@@ -122,6 +123,17 @@ public class ForeController {
         session.setAttribute("user", user);
         return "success";
     }
+    
+    @RequestMapping("foresearch")
+    public String search( String keyword,Model model){
+ 
+        PageHelper.offsetPage(0,20);
+        List<Question> qs= questionService.search(keyword);
+        questionService.setAnswerAndCltProblemNum(qs);
+        model.addAttribute("qs",qs);
+        return "fore/searchResult";
+    }
+
  
 }
 

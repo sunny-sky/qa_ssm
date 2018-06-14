@@ -10,7 +10,6 @@ import com.xjtu.qa.mapper.QuestionMapper;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.QuestionExample;
-import com.xjtu.qa.pojo.UserLike;
 import com.xjtu.qa.service.AnswerService;
 import com.xjtu.qa.service.CategoryService;
 import com.xjtu.qa.service.QuestionService;
@@ -71,18 +70,31 @@ public class QuestionServiceImpl implements QuestionService{
     }
     
     @Override
-    public void setAnswerNum(Question q) {
+    public void setAnswerAndCltProblemNum(Question q) {
     	int answerNum = answerService.getCount(q.getId());
-    	answerNum = answerNum + 1;
-    	q.setAnswerNum(answerNum);   
+        q.setAnswerNum(answerNum);
+        
     }
     
     @Override
-	public void setUserLikeNum(UserLike ul){
-    	int userLikeNum = answerService.getCount(ul.getAid());
-    	userLikeNum = userLikeNum + 1;
-    	get(ul.getAid()).setUserLikeNum(userLikeNum);
+    public void setAnswerAndCltProblemNum(List<Question> qs) {
+    	for (Question q : qs) {
+    		setAnswerAndCltProblemNum(q);
+        }
     }
+    
+    @Override
+    public List<Question> search(String keyword){
+    	QuestionExample example = new QuestionExample();
+        example.createCriteria().andContentLike("%" + keyword + "%");
+        example.setOrderByClause("id desc");
+        List<Question> result = questionMapper.selectByExample(example);
+        setCategory(result);
+        return result;
+    }
+    
+    
+
     
     @Override
     public void fill(List<Category> cs) {

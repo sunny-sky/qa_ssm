@@ -17,14 +17,14 @@ public class Question {
     
     private int answerNum;
     
-    private int userLikeNum;
+    private int cltProblemNum;
 
     public int getUserLikeNum() {
-		return userLikeNum;
+		return cltProblemNum;
 	}
 
-	public void setUserLikeNum(int userLikeNum) {
-		this.userLikeNum = userLikeNum;
+	public void setUserLikeNum(int cltProblemNum) {
+		this.cltProblemNum = cltProblemNum;
 	}
 
 	public int getAnswerNum() {

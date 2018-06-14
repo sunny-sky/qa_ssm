@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Question;
-import com.xjtu.qa.pojo.UserLike;
+
 
 
 public interface QuestionService {
@@ -15,8 +15,10 @@ public interface QuestionService {
     @SuppressWarnings("rawtypes")
 	List list(int cid);
 
-    void setAnswerNum(Question q);
-    void setUserLikeNum(UserLike ul);
+    void setAnswerAndCltProblemNum(Question q);
+    void setAnswerAndCltProblemNum(List<Question> qs);
+
+    List<Question> search(String keyword);
     
     public void fill(List<Category> categorys);
     public void fill(Category category);

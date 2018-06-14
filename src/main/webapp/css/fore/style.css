@@ -571,7 +571,7 @@ div.categoryProducts {
 	padding: 0px 20px 40px 20px;
 }
 
-div.productUnit {
+div.questionUnit {
 	width: 225px;
 	height: 338px;
 	border: 3px solid #fff;
@@ -581,35 +581,35 @@ div.productUnit {
 	padding: 0px;
 }
 
-div.productUnit:hover {
+div.questionUnit:hover {
 	width: 225px;
 	border: 3px solid #C40000;
 	padding: 0px;
 }
 
 
-div.productUnit span.productUnitDesc {
+div.questionUnit span.questionUnitDesc {
 	font-size: 12px;
 	color: #666666;
 	display: block;
 	padding: 16px;
 }
 
-div.productUnitFrame{
+div.questionUnitFrame{
 	border:1px solid #eee;
 }
-div.productUnitFrame:hover{
+div.questionUnitFrame:hover{
 	border:1px solid #C40000;
 }
 
-div.productUnit span.productPrice {
+div.questionUnit span.questionPrice {
 	font-size: 20px;
 	color: #CC0000;
 	display: block;
 	padding-left: 4px;
 }
 
-div.productUnit span.productReview {
+div.questionUnit span.productReview {
 	border-left-width: 1px;
 	border-left-style: solid;
 	border-left-color: #EEEEEE;
@@ -618,19 +618,19 @@ div.productUnit span.productReview {
 	border-right-color: #EEEEEE;
 }
 
-div.productUnit a.productLink {
+div.questionUnit a.questionLink {
 	margin: 10px 0px;
 	color: #333333;
 	font: 0.8em;
 	display: block;
 }
 
-div.productUnit a.productLink:hover {
+div.questionUnit a.productLink:hover {
 	text-decoration: underline;
 	color: #C40000;
 }
 
-div.productUnit a.tmallLink {
+div.questionUnit a.tmallLink {
 	margin: 10px 0px;
 	color: #999999;
 	font: 0.8em;
@@ -638,16 +638,16 @@ div.productUnit a.tmallLink {
 	text-decoration: underline;
 }
 
-div.productUnit a.tmallLink:hover {
+div.questionUnit a.tmallLink:hover {
 	text-decoration: underline;
 	color: #C40000;
 }
 
-div.productUnit div.productInfo {
+div.questionUnit div.productInfo {
 	color: #999999;
 }
 
-div.productUnit span.monthDeal, div.productUnit span.productReview {
+div.questionUnit span.monthDeal, div.questionUnit span.productReview {
 	display: inline-block;
 	width: 90px;
 	height: 30px;
@@ -655,26 +655,23 @@ div.productUnit span.monthDeal, div.productUnit span.productReview {
 	padding-left: 5px;
 }
 
-div.productUnit span.wangwang {
-	padding-left: 3px;
-}
 
-div.productUnit span.productDealNumber {
+div.questionUnit span.productDealNumber {
 	font-weight: bold;
 	color: #B57C5B;
 }
 
-div.productUnit span.productReviewNumber {
+div.questionUnit span.productReviewNumber {
 	font-weight: bold;
 	color: #3388BB;
 }
 
-div.productUnit img.productImage {
+div.questionUnit img.productImage {
 	width: 100%;
 	height: 190px;
 }
 
-div.productUnit div.productInfo {
+div.questionUnit div.productInfo {
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-top-color: #EEEEEE;
