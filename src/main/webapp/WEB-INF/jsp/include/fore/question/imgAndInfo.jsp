@@ -5,7 +5,6 @@
 <script>
  
 $(function(){
-    var stock = ${p.stock};
     $(".productNumberSetting").keyup(function(){
         var num= $(".productNumberSetting").val();
         num = parseInt(num);
@@ -33,26 +32,25 @@ $(function(){
         $(".productNumberSetting").val(num);
     });
      
-    $(".addCartButton").removeAttr("disabled");
-    $(".addCartLink").click(function(){
+    $(".addCltpButton").removeAttr("disabled");
+    $(".addCltpLink").click(function(){
         var page = "forecheckLogin";
         $.get(
                 page,
                 function(result){
                     if("success"==result){
-                        var pid = ${p.id};
-                        var num= $(".productNumberSetting").val();
-                        var addCartpage = "foreaddCart";
+                        var qid = ${q.id};
+                        var addCltppage = "foreaddCltp";
                         $.get(
-                                addCartpage,
-                                {"pid":pid,"num":num},
+                                addCltppage,
+                                {"qid":qid},
                                 function(result){
                                     if("success"==result){
-                                        $(".addCartButton").html("*****");
-                                        $(".addCartButton").attr("disabled","disabled");
-                                        $(".addCartButton").css("background-color","lightgray")
-                                        $(".addCartButton").css("border-color","lightgray")
-                                        $(".addCartButton").css("color","black")
+                                        $(".addCltpButton").html("已收藏");
+                                        $(".addCltpButton").attr("disabled","disabled");
+                                        $(".addCltpButton").css("background-color","lightgray")
+                                        $(".addCltpButton").css("border-color","lightgray")
+                                        $(".addCltpButton").css("color","black")
                                          
                                     }
                                     else{
@@ -68,22 +66,7 @@ $(function(){
         );      
         return false;
     });
-    $(".buyLink").click(function(){
-        var page = "forecheckLogin";
-        $.get(
-                page,
-                function(result){
-                    if("success"==result){
-                        var num = $(".productNumberSetting").val();
-                        location.href= $(".buyLink").attr("href")+"&num="+num;
-                    }
-                    else{
-                        $("#loginModal").modal('show');                     
-                    }
-                }
-        );      
-        return false;
-    });
+
      
     $("button.loginSubmitButton").click(function(){
         var name = $("#name").val();
@@ -134,7 +117,8 @@ $(function(){
 });
  
 </script>
- 
+
+
 <div class="imgAndInfo">
 
     <div class="infoInimgAndInfo">
@@ -145,8 +129,11 @@ $(function(){
         </div>
         
        
-        <div class="buyDiv">
-            <a href="#nowhere" class="addCartLink"><button class="addCartButton"><span class="glyphicon glyphicon-shopping-cart"></span>收藏该问题</button></a>
+        <div class="cltproblemDiv">
+            <a class="addCltpLink" href="#nowhere"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+				收藏问题</button>
+			</a>         
+          
         </div>
     </div>
      

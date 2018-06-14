@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8" isELIgnored="false"%>
 
-<div class="modal " id="loginModal" tabindex="-1" role="dialog" >
+<div class="modal" id="loginModal" tabindex="-1" role="dialog" >
 	<div class="modal-dialog loginDivInProductPageModalDiv">
 		<div class="modal-content">
 			<div class="loginDivInProductPage">
@@ -26,7 +26,7 @@
 							</span>
 					<input id="password" name="password"  type="password" placeholder="密码" type="text">
 				</div>
-				<!-- <span class="text-danger"></span><br><br> -->
+				<span class="text-danger">请牢记自己的账号密码 </span><br><br>
 				<div>
 					<a href="#nowhere">忘记登录密码(未完成)</a>
 					<a href="registerPage" class="pull-right">免费注册</a>
