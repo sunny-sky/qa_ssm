@@ -1960,43 +1960,34 @@ div.orderFinishDiv span {
 	padding-top: 20px;
 }
 
-div.reviewDiv {
+div.answerDiv {
 	max-width: 1013px;
 	margin: 10px auto;
 }
 
-div.reviewProductInfoRightDiv {
+div.answerQuestionInfoRightDiv {
 	overflow: hidden;
 	border-top: 1px solid #E7E7E7;
 	padding: 30px 20px;
 }
 
-div.reviewProductInfoImg {
-	border: 1px solid #E7E7E7;
-	width: 464px;
-	text-align: center;
-	float: left;
-}
 
-div.reviewProductInfoRightText {
+
+div.answerQuestionInfoRightText {
 	color: black;
 	font-size: 16px;
 	font-weight: bold;
 }
 
-span.reviewProductInfoTablePrice {
+span.answerQuestionInfoTableNum {
 	color: #C40000;
 	font-size: 20px;
 	font-weight: bold;
 }
 
-span.reviewProductInfoTableSellNumber {
-	color: #C40000;
-	font-size: 14px;
-	font-weight: bold;
-}
 
-table.reviewProductInfoTable {
+
+table.answerQuestionInfoTable {
 	margin: 20px 10px;
 }
 
@@ -2005,25 +1996,16 @@ table.reviewProductInfoTable td {
 	color: #999999;
 }
 
-div.reviewProductInfoRightBelowDiv {
+div.answerQuestionInfoRightBelowDiv {
 	border: 1px solid #F6F5F3;
 	background-color: #FDFBFA;
 	height: 166px;
 	padding: 16px 81px;
 }
 
-span.reviewProductInfoRightBelowImg {
-	background-color: white;
-	border: 1px solid #E1E1E1;
-	display: inline-block;
-	width: 23px;
-	height: 42px;
-	background-image: url(../../img/site/reviewLight.png);
-	background-repeat: no-repeat;
-	padding: 0px;
-}
 
-span.reviewProductInfoRightBelowText {
+
+span.answerQuestionInfoRightBelowText {
 	border: 1px solid #EFEFEF;
 	/* 	border-left-width:1px;	 */
 	display: inline-block;
@@ -2036,17 +2018,17 @@ span.reviewProductInfoRightBelowText {
 	color: #666666;
 }
 
-div.reviewStasticsLeft {
+div.answerStasticsLeft {
 	width: 180px;
 	float: left;
 }
 
-div.reviewStasticsLeftTop {
+div.answerStasticsLeftTop {
 	background-color: #C40000;
 	height: 6px;
 }
 
-div.reviewStasticsLeftContent {
+div.answerStasticsLeftContent {
 	line-height: 29px;
 	border-left: 1px solid #D5D4D4;
 	border-right: 1px solid #D5D4D4;
@@ -2057,46 +2039,46 @@ div.reviewStasticsLeftContent {
 	font-weight: bold;
 }
 
-span.reviewStasticsNumber {
+span.answerStasticsNumber {
 	color: #284CA5;
 }
 
-div.reviewStasticsLeftFoot {
+div.answerStasticsLeftFoot {
 	height: 6px;
 	border-left: 1px solid #D5D4D4;
 	border-bottom: 1px solid #D5D4D4;
 	background-color: #F6F5F1;
 }
 
-div.reviewStasticsRight {
+div.answerStasticsRight {
 	overflow: hidden;
 }
 
-div.reviewStasticsRightEmpty {
+div.answerStasticsRightEmpty {
 	height: 35px;
 }
 
-div.reviewStasticsFoot {
+div.answerStasticsFoot {
 	background-color: #F6F5F1;
 	border: 1px solid #D5D4D4;
 	border-left-width: 0px;
 	height: 6px;
 }
 
-div.makeReviewDiv {
+div.makeAnswerDiv {
 	border: 1px solid #D1CCC8;
 	margin: 20px 0px;
 	background-color: #EFEFEF;
 }
 
-div.makeReviewText {
+div.makeAnswerText {
 	font-size: 16px;
 	color: #333333;
 	font-weight: bold;
 	margin: 20px 40px;
 }
 
-table.makeReviewTable {
+table.makeAnswerTable {
 	margin: 20px 40px;
 }
 
@@ -2113,17 +2095,17 @@ table.makeReviewTable textarea {
 	height: 120px;
 }
 
-td.makeReviewTableFirstTD {
+td.makeAnswerTableFirstTD {
 	background-color: #F6F6F6;
 }
 
-div.makeReviewButtonDiv {
+div.makeAnswerButtonDiv {
 	background-color: white;
 	text-align: center;
 	padding: 15px;
 }
 
-div.makeReviewButtonDiv button {
+div.makeAnswerButtonDiv button {
 	width: 72px;
 	height: 26px;
 	border-radius: 2px;
@@ -2219,7 +2201,7 @@ div.categoryPictureInQuestionPageDiv {
 	text-align: center;
 }
 
-div.reviewStasticsDiv {
+div.answerStasticsDiv {
 	margin-top: 20px;
 }
 
@@ -2238,33 +2220,33 @@ td.orderItemOrderInfoPartTD {
 	border: solid 1px #ECECEC;
 }
 
-div.reviewDate {
+div.answerDate {
 	width: 100px;
 }
 
-div.reviewDivlistReviewsEach div {
+div.answerDivlistReviewsEach div {
 	display: inline-block;
 }
 
-div.reviewDate {
+div.answerDate {
 	color: #CCCCDD;
 }
 
-div.reviewContent {
+div.answerContent {
 	color: #333333;
 	width: 698px;
 }
 
-div.reviewUserInfo {
+div.answerUserInfo {
 	color: #333333;
 }
 
-div.reviewDivlistReviewsEach {
+div.answerDivlistReviewsEach {
 	padding: 20px;
 	border-bottom: 1px solid #ECECEC;
 }
 
-span.reviewUserInfoAnonymous {
+span.answerUserInfoAnonymous {
 	color: #CCCCDD;
 	margin-left: 5px;
 }

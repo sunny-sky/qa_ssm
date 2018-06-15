@@ -2,6 +2,7 @@ package com.xjtu.qa.service;
 
 import java.util.List;
 
+import com.xjtu.qa.pojo.Answer;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Question;
 
@@ -22,4 +23,6 @@ public interface QuestionService {
     
     public void fill(List<Category> categorys);
     public void fill(Category category);
+    
+    List<Answer> listAnswers(int qid);
 }

@@ -91,11 +91,11 @@ public class ForeController {
     public String question(int qid, Model model){
     	Question q = questionService.get(qid);
     	
-    	List<Answer> answers = answerService.list(q.getId());
+    	List<Answer> answers = questionService.listAnswers(q.getId());
     	int answerNum = q.getAnswerNum();
-    	int userLikeNum = q.getUserLikeNum();
+    	int cltProblemNum = q.getCltProblemNum();
     	model.addAttribute("answerNum", answerNum);
-    	model.addAttribute("userLikeNum", userLikeNum);
+    	model.addAttribute("cltProblemNum", cltProblemNum);
     	model.addAttribute("q", q);
     	model.addAttribute("answers", answers);
     	return "fore/question";
@@ -134,6 +134,17 @@ public class ForeController {
         return "fore/searchResult";
     }
 
+    @RequestMapping("foreanswer")
+    public String review( Model model,int qid) {
+        Question q = questionService.get(qid);
+        List<Answer> answers = questionService.listAnswers(qid);
+        questionService.setAnswerAndCltProblemNum(q);
+
+        model.addAttribute("q", q);
+        model.addAttribute("answers", answers);
+
+        return "fore/answer";
+    }
  
 }
 

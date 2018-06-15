@@ -40,15 +40,7 @@ public class AnswerServiceImpl implements AnswerService {
     }
     
 
-    public List<Answer> list(int qid){
-    	AnswerExample example =new AnswerExample();
-        example.createCriteria().andQidEqualTo(qid);
-        example.setOrderByClause("id desc");
-  
-        List<Answer> result =answerMapper.selectByExample(example);
-        setUser(result);
-        return result;
-    }
+    
     
     public void setUser(List<Answer> answers){
         for (Answer answer : answers) {
@@ -65,6 +57,16 @@ public class AnswerServiceImpl implements AnswerService {
     @Override
     public int getCount(int qid) {
         return list(qid).size();
+    }
+    
+    public List<Answer> list(int qid){
+    	AnswerExample example =new AnswerExample();
+        example.createCriteria().andQidEqualTo(qid);
+        example.setOrderByClause("id desc");
+  
+        List<Answer> result =answerMapper.selectByExample(example);
+        setUser(result);
+        return result;
     }
     
 }

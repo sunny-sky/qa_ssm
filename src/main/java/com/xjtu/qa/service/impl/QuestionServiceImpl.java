@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xjtu.qa.mapper.QuestionMapper;
+import com.xjtu.qa.mapper.AnswerMapper;
+import com.xjtu.qa.pojo.Answer;
+import com.xjtu.qa.pojo.AnswerExample;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.QuestionExample;
@@ -21,11 +24,15 @@ public class QuestionServiceImpl implements QuestionService{
     @Autowired
     QuestionMapper questionMapper;
     @Autowired
+    QuestionService questionService;
+    @Autowired
     CategoryService categoryService;
     @Autowired
     UserLikeService userLikeService;
     @Autowired
     AnswerService answerService;
+    @Autowired
+    AnswerMapper answerMapper;
     
     @Override
     public void add(Question q) {
@@ -110,7 +117,17 @@ public class QuestionServiceImpl implements QuestionService{
         c.setQuestions(qs);
     }
     
-   
+    @Override
+    public List<Answer> listAnswers(int qid){
+    	AnswerExample example =new AnswerExample();
+        example.createCriteria().andQidEqualTo(qid);
+        example.setOrderByClause("id desc");
+        Question q = questionService.get(qid);
+  
+        List<Answer> answers =answerMapper.selectByExample(example);
+        q.setAnswers(answers);
+        return answers;
+    }
 
 
 }

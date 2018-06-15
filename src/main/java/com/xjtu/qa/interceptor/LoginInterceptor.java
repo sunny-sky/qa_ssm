@@ -42,7 +42,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                 "login",
                 "question",
                 "category",
-                "search"};
+                "search",
+                "answer"};
  
         String uri = request.getRequestURI();
         uri = StringUtils.remove(uri, contextPath);

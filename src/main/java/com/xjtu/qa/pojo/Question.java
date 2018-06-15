@@ -1,5 +1,7 @@
 package com.xjtu.qa.pojo;
 
+import java.util.List;
+
 public class Question {
     private Integer id;
 
@@ -19,11 +21,21 @@ public class Question {
     
     private int cltProblemNum;
 
-    public int getUserLikeNum() {
+    public int getCltProblemNum() {
 		return cltProblemNum;
 	}
+    
+    List<Answer> answers;
 
-	public void setUserLikeNum(int cltProblemNum) {
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+
+	public void setCltProblemNum(int cltProblemNum) {
 		this.cltProblemNum = cltProblemNum;
 	}
 
