@@ -1,6 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8" isELIgnored="false"%>
 
+<script>
+$(function(){
+/* 	$(".askQuestionButton").removeAttr("disabled"); */
+	$(".askQuestionLink").click(function(){
+	    var page = "forecheckLogin";
+	    $.get(
+	            page,
+	            function(result){
+	                if("success"==result){
+	                	location.href= $(".askQuestionLink").attr("href");
+	                }
+	                else{
+	                    $("#loginModal").modal('show');                     
+	                }
+	            }
+	    );      
+	    return false;
+	});
+	$("button.loginSubmitButton").click(function(){
+	    var name = $("#name").val();
+	    var password = $("#password").val();
+	     
+	    if(0==name.length||0==password.length){
+	        $("span.errorMessage").html("请输入账号密码");
+	        $("div.loginErrorMessageDiv").show();           
+	        return false;
+	    }
+	     
+	    var page = "foreloginAjax";
+	    $.get(
+	            page,
+	            {"name":name,"password":password},
+	            function(result){
+	                if("success"==result){
+	                    location.reload();
+	                }
+	                else{
+	                    $("span.errorMessage").html("账号密码错误");
+	                    $("div.loginErrorMessageDiv").show();                       
+	                }
+	            }
+	    );          
+	    
+	    return true;
+	});
+});
+</script>
+
 <a href="${contextPath}">
 	<img id="logo" src="img/site/qa.gif" class="logo" width="290" height="130">
 </a>
@@ -25,4 +73,4 @@
 		</div>
 	</div>
 </form>
-<a href="askQuestion"><button  type="button" >去提问</button></a>
+<a class="askQuestionLink" href="askQuestion" ><button type="button" class="btn btn-primary askQuestionButton" data-toggle="modal" data-target="#loginModal">去提问</button></a>

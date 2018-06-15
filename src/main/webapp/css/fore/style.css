@@ -846,7 +846,7 @@ div.infoInimgAndInfo span.promotionPrice {
 	/*     vertical-align: middle; */
 }
 
-div.infoInimgAndInfo div.productSaleAndReviewNumber {
+div.infoInimgAndInfo div.questionAnswerAndCltpNum {
 	margin: 20px 0px;
 	border-top-style: dotted;
 	border-top-color: #C9C9C9;
@@ -857,7 +857,7 @@ div.infoInimgAndInfo div.productSaleAndReviewNumber {
 	padding: 10px;
 }
 
-div.infoInimgAndInfo div.productSaleAndReviewNumber div {
+div.infoInimgAndInfo div.questionAnswerAndCltpNum div {
 	display: inline-block;
 	width: 49%;
 	text-align: center;
@@ -865,7 +865,7 @@ div.infoInimgAndInfo div.productSaleAndReviewNumber div {
 	font-size: 12px;
 }
 
-div.infoInimgAndInfo div.productSaleAndReviewNumber div:first-child {
+div.infoInimgAndInfo div.questionAnswerAndCltpNum div:first-child {
 	border-right-width: 1px;
 	border-right-style: solid;
 	border-right-color: #E5DFDA;

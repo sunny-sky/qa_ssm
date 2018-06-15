@@ -123,14 +123,14 @@ $(function(){
 
     <div class="infoInimgAndInfo">
         <div class="questionTitle">${q.content}</div>
-        <div class="productSaleAndReviewNumber">
+        <div class="questionAnswerAndCltp">
             <div>回答数 <span class="redColor boldWord"> ${answerNum}</span></div>   
             <div>点赞数 <span class="redColor boldWord"> ${userLikeNum}</span></div>    
         </div>
         
        
         <div class="cltproblemDiv">
-            <a class="addCltpLink" href="#nowhere"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+            <a class="addCltpLink" href="#nowhere"><button type="button" class="btn btn-primary addCltpButton" data-toggle="modal" data-target="#loginModal">
 				收藏问题</button>
 			</a>         
           
