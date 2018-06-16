@@ -96,24 +96,9 @@ $(function(){
         return true;
     });
      
-    $("img.smallImage").mouseenter(function(){
-        var bigImageURL = $(this).attr("bigImageURL");
-        $("img.bigImg").attr("src",bigImageURL);
-    });
+    
      
-    $("img.bigImg").load(
-        function(){
-            $("img.smallImage").each(function(){
-                var bigImageURL = $(this).attr("bigImageURL");
-                img = new Image();
-                img.src = bigImageURL;
-                 
-                img.onload = function(){
-                    $("div.img4load").append($(img));
-                };
-            });     
-        }
-    );
+    
 });
  
 </script>
@@ -125,7 +110,7 @@ $(function(){
         <div class="questionTitle">${q.content}</div>
         <div class="questionAnswerAndCltp">
             <div>回答数 <span class="redColor boldWord"> ${answerNum}</span></div>   
-            <div>点赞数 <span class="redColor boldWord"> ${userLikeNum}</span></div>    
+            <div>收藏数 <span class="redColor boldWord"> ${cltProblemNum}</span></div>    
         </div>
         
        

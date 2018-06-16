@@ -92,7 +92,7 @@ public class ForeController {
     	Question q = questionService.get(qid);
     	
     	List<Answer> answers = questionService.listAnswers(q.getId());
-    	int answerNum = q.getAnswerNum();
+    	int answerNum = answers.size();
     	int cltProblemNum = q.getCltProblemNum();
     	model.addAttribute("answerNum", answerNum);
     	model.addAttribute("cltProblemNum", cltProblemNum);
@@ -144,6 +144,22 @@ public class ForeController {
         model.addAttribute("answers", answers);
 
         return "fore/answer";
+    }
+    
+    @RequestMapping("foredoanswer")
+    public String doreview( Model model,HttpSession session,@RequestParam("qid") int qid,String content) {
+        Answer a = new Answer();
+        a.setQid(qid);
+        content = HtmlUtils.htmlEscape(content);
+        a.setContent(content);        
+        User user =(User)  session.getAttribute("user");
+        a.setUserid(user.getId());
+        a.setUser(user);
+        answerService.add(a);
+        
+
+     
+        return "redirect:foreanswer?qid="+qid+"&showonly=true";
     }
  
 }

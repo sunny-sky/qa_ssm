@@ -23,8 +23,7 @@ import com.xjtu.qa.service.UserLikeService;
 public class QuestionServiceImpl implements QuestionService{
     @Autowired
     QuestionMapper questionMapper;
-    @Autowired
-    QuestionService questionService;
+    
     @Autowired
     CategoryService categoryService;
     @Autowired
@@ -122,7 +121,8 @@ public class QuestionServiceImpl implements QuestionService{
     	AnswerExample example =new AnswerExample();
         example.createCriteria().andQidEqualTo(qid);
         example.setOrderByClause("id desc");
-        Question q = questionService.get(qid);
+        Question q = new Question();
+        q = get(qid);
   
         List<Answer> answers =answerMapper.selectByExample(example);
         q.setAnswers(answers);

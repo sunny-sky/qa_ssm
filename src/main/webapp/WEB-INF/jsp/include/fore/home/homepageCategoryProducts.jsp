@@ -28,7 +28,7 @@
 								<span class="questionItemDesc">[热搜]
 								${fn:substring(q.content, 0, 20)}<br/>
 								共有回答：${q.answerNum}个<br/>
-								共收藏：${q.userLikeNum}次
+								共收藏：${q.cltProblemNum}次
 								</span>
 						    </a>
 							

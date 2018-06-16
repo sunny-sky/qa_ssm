@@ -52,7 +52,7 @@
 	
 	<c:if test="${param.showonly!=true}">
 		<div class="makeAnswerDiv">
-		<form method="post" action="foredoreview">
+		<form method="post" action="foredoanswer">
 			<div class="makeAnswerText">其他用户，需要你的回答哦！</div>
 			<table class="makeAnswerTable">
 				<tr>
@@ -61,7 +61,6 @@
 				</tr>
 			</table>
 			<div class="makeAnswerButtonDiv">
-				<input type="hidden" name="userid" value="${user.name}">
 				<input type="hidden" name="qid" value="${q.id}">
 				<button type="submit">提交评价</button>
 			</div>

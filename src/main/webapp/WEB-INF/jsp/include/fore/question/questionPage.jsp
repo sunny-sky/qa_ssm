@@ -8,7 +8,5 @@
 
 	<%@include file="imgAndInfo.jsp" %>
 
-	<%@include file="questionReview.jsp" %>
-
-	<%@include file="questionDetail.jsp" %>
+	<%@include file="questionAnswer.jsp" %>
 </div>

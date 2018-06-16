@@ -711,6 +711,7 @@ div.simpleSearchDiv button {
 }
 
 div.imgAndInfo {
+	position:absolute;
 	margin: 40px 20px;
 }
 
@@ -930,9 +931,11 @@ div.infoInimgAndInfo span.serviceCommitmentLink a {
 	color: #666666;
 }
 
-div.productDetailDiv {
+div.questionAnswerDiv {
+	position:relative;
 	width: 790px;
-	margin: 120px auto;
+	/* margin: 120px auto; */
+
 }
 
 div.productReviewDiv {
@@ -944,7 +947,7 @@ div.productReviewContentPart {
 	padding-top: 50px;
 }
 
-div.productDetailTopPart {
+div.questionAnswerTopPart {
 	border: 1px solid #DFDFDF;
 	border-left-width: 0px;
 }
