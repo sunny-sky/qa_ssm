@@ -711,7 +711,7 @@ div.simpleSearchDiv button {
 }
 
 div.imgAndInfo {
-	position:absolute;
+	/* position:absolute; */
 	margin: 40px 20px;
 }
 
@@ -932,9 +932,9 @@ div.infoInimgAndInfo span.serviceCommitmentLink a {
 }
 
 div.questionAnswerDiv {
-	position:relative;
+	/* position:relative; */
 	width: 790px;
-	/* margin: 120px auto; */
+	margin: 220px auto;
 
 }
 

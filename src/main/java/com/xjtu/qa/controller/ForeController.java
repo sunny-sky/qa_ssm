@@ -98,6 +98,10 @@ public class ForeController {
     	model.addAttribute("cltProblemNum", cltProblemNum);
     	model.addAttribute("q", q);
     	model.addAttribute("answers", answers);
+    	for(Answer a:answers){
+    		System.out.println(a.getContent());
+    	}
+    	
     	return "fore/question";
     	
     }

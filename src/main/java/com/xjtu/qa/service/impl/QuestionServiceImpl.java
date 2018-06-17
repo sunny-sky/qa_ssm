@@ -121,10 +121,14 @@ public class QuestionServiceImpl implements QuestionService{
     	AnswerExample example =new AnswerExample();
         example.createCriteria().andQidEqualTo(qid);
         example.setOrderByClause("id desc");
+        
         Question q = new Question();
         q = get(qid);
   
         List<Answer> answers =answerMapper.selectByExample(example);
+        for(Answer a:answers){
+    		System.out.println("QuestionServiceImpl中"+a.getContent());
+    	}
         q.setAnswers(answers);
         return answers;
     }

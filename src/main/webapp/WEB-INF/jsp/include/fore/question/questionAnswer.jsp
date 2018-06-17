@@ -13,11 +13,27 @@
 	<div class="productParamterPart">
 		<div class="productParamter">问题回答：</div>
 		
-		<div class="productParamterList">
-			<c:forEach items="${answers}" var="a">
-				<span>${a.content} </span>
-			</c:forEach>
-		</div>
+
+		<c:forEach items="${answers}" var="a">
+			<div class="productReviewItem">
+	
+				<div class="productReviewItemDesc">
+					<div class="productReviewItemContent">
+						${a.content}						
+						${a.id}
+						${a.qid}
+						${a.userid}
+					</div>
+					<div class="productReviewItemDate"><fmt:formatDate value="${r.creationtime}" pattern="yyyy-MM-dd"/></div>
+				</div>
+				<div class="productReviewItemUserInfo">
+				
+					${a.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>
+				</div>			
+				<div style="clear:both"></div>		
+			</div>
+		</c:forEach>
+
 		<div style="clear:both"></div>
 	</div>
 	
