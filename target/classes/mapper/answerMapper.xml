@@ -41,7 +41,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, userid, qid, creationtime, likenumber
+    id, userid, qid, content, creationtime, likenumber
   </sql>
   <sql id="Blob_Column_List">
     content

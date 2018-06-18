@@ -59,14 +59,18 @@ public class AnswerServiceImpl implements AnswerService {
         return list(qid).size();
     }
     
+    @Override
     public List<Answer> list(int qid){
     	AnswerExample example =new AnswerExample();
         example.createCriteria().andQidEqualTo(qid);
-        example.setOrderByClause("id desc");
-  
-        List<Answer> result =answerMapper.selectByExample(example);
-        setUser(result);
-        return result;
+        example.setOrderByClause("id desc");  
+        List<Answer> answers =answerMapper.selectByExample(example);
+        setUser(answers);
+        for(Answer a:answers){
+    		System.out.println("AnswerServiceImpl中"+a.getContent());
+    		System.out.println("AnswerServiceImpl中"+a.getId());
+    	}
+        return answers;
     }
     
 }

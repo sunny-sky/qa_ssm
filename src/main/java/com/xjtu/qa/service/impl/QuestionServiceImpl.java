@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.xjtu.qa.mapper.QuestionMapper;
 import com.xjtu.qa.mapper.AnswerMapper;
 import com.xjtu.qa.pojo.Answer;
-import com.xjtu.qa.pojo.AnswerExample;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.QuestionExample;
@@ -22,8 +21,7 @@ import com.xjtu.qa.service.UserLikeService;
 @Service
 public class QuestionServiceImpl implements QuestionService{
     @Autowired
-    QuestionMapper questionMapper;
-    
+    QuestionMapper questionMapper;    
     @Autowired
     CategoryService categoryService;
     @Autowired
@@ -118,18 +116,18 @@ public class QuestionServiceImpl implements QuestionService{
     
     @Override
     public List<Answer> listAnswers(int qid){
-    	AnswerExample example =new AnswerExample();
-        example.createCriteria().andQidEqualTo(qid);
-        example.setOrderByClause("id desc");
-        
-        Question q = new Question();
-        q = get(qid);
-  
-        List<Answer> answers =answerMapper.selectByExample(example);
+    	List<Answer> answers = answerService.list(qid);
+//    	AnswerExample example =new AnswerExample();
+//        example.createCriteria().andQidEqualTo(qid);
+//        example.setOrderByClause("id desc");
+//        List<Answer> answers =answerMapper.selectByExample(example);        
+//        Question q = new Question();
+//        q = get(qid);       
         for(Answer a:answers){
     		System.out.println("QuestionServiceImpl中"+a.getContent());
     	}
-        q.setAnswers(answers);
+//        q.setAnswers(answers);
+        get(qid).setAnswers(answers);
         return answers;
     }
 

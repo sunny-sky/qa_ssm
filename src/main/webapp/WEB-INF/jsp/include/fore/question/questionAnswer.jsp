@@ -24,7 +24,7 @@
 						${a.qid}
 						${a.userid}
 					</div>
-					<div class="productReviewItemDate"><fmt:formatDate value="${r.creationtime}" pattern="yyyy-MM-dd"/></div>
+					<div class="productReviewItemDate"><fmt:formatDate value="${a.creationtime}" pattern="yyyy-MM-dd"/></div>
 				</div>
 				<div class="productReviewItemUserInfo">
 				

@@ -91,13 +91,17 @@ public class ForeController {
     public String question(int qid, Model model){
     	Question q = questionService.get(qid);
     	
-    	List<Answer> answers = questionService.listAnswers(q.getId());
+    	List<Answer> answers = questionService.listAnswers(qid);
     	int answerNum = answers.size();
     	int cltProblemNum = q.getCltProblemNum();
     	model.addAttribute("answerNum", answerNum);
     	model.addAttribute("cltProblemNum", cltProblemNum);
     	model.addAttribute("q", q);
     	model.addAttribute("answers", answers);
+    	if(q.getAnswers()==null){
+    		System.out.println("q.getAnswers()为空");
+    	}
+    	
     	for(Answer a:answers){
     		System.out.println(a.getContent());
     	}
