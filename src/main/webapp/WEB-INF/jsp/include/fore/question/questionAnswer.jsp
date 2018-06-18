@@ -20,9 +20,6 @@
 				<div class="productReviewItemDesc">
 					<div class="productReviewItemContent">
 						${a.content}						
-						${a.id}
-						${a.qid}
-						${a.userid}
 					</div>
 					<div class="productReviewItemDate"><fmt:formatDate value="${a.creationtime}" pattern="yyyy-MM-dd"/></div>
 				</div>
