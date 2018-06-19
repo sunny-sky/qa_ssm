@@ -18,6 +18,11 @@ a:hover {
 	color: #C40000;
 }
 
+a.questionAllAnswerTopPartSelectedLink {
+	padding: 0px 20px;
+	color: #333333;
+}
+
 nav.top {
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -931,30 +936,28 @@ div.infoInimgAndInfo span.serviceCommitmentLink a {
 	color: #666666;
 }
 
-div.questionAnswerDiv {
+div.questionAllAnswerDiv {
 	/* position:relative; */
 	width: 790px;
 	margin: 220px auto;
 
 }
 
-div.productReviewDiv {
+div.questionAnswerDiv {
 	width: 790px;
-	margin: 40px auto;
+	margin: 220px auto;
 }
 
-div.productReviewContentPart {
+div.questionAnswerContentPart {
 	padding-top: 50px;
 }
 
-div.questionAnswerTopPart {
+div.questionAllAnswerTopPart {
 	border: 1px solid #DFDFDF;
-	border-left-width: 0px;
+	
 }
 
-div.productReviewTopPart {
-	border: 1px solid #DFDFDF;
-}
+
 
 div.productParamterPart {
 	border: 1px solid #DFDFDF;
@@ -1014,13 +1017,13 @@ a.selected:before {
 	margin-left: -1px;
 }
 
-a.productDetailTopReviewLink {
+a.questionAnswerTopAllAnswerLink {
 	padding: 0px 20px;
 	border-right: 1px dotted #D2D2D2;
 	color: #333333;
 }
 
-span.productDetailTopReviewLinkNumber {
+span.questionAllAnswerTopAnswerLinkNumber {
 	color: #3355B9;
 }
 
@@ -1033,10 +1036,10 @@ div.productDetailImagesPart img {
 	width: 790px;
 }
 
-a.productReviewTopPartSelectedLink {
+/* a.questionAnswerTopPartSelectedLink {
 	padding: 0px 20px;
 	color: #333333;
-}
+} */
 
 div.productReviewItem {
 	border-bottom: 1px solid #E3E3E3;
@@ -1073,7 +1076,7 @@ span.userInfoGrayPart {
 	color: #999999;
 }
 
-div.productReviewDiv {
+div.questionAnswerDiv {
 	display: none;
 }
 

@@ -42,4 +42,9 @@ public class PageController {
     	model.addAttribute("c2s", c2s);
         return "fore/askQuestion";
     }
+    
+    @RequestMapping("addAnswer")
+    public String addAnswer(){
+    	return "fore/addAnswer";
+    }
 }

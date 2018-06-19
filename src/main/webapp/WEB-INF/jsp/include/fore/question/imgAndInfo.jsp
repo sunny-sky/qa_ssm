@@ -33,6 +33,27 @@ $(function(){
     });
      
     $(".addCltpButton").removeAttr("disabled");
+    
+    $(".addCltpLink").click(function(){
+    	var page = "forecheckLogin";
+        $.get(
+                page,
+                function(result){
+                    if("success"==result){
+                    	var qid = ${q.id};
+                    	var addAnswerpage = "addAnswer";
+                    	$.get(
+                    			addAnswerpage,
+                    			{"qid":qid}
+                    			);
+                    }
+                    else{
+                        $("#loginModal").modal('show');                     
+                    }
+                }
+        );      
+        return false;
+    });
     $(".addCltpLink").click(function(){
         var page = "forecheckLogin";
         $.get(
@@ -117,9 +138,10 @@ $(function(){
         <div class="cltproblemDiv">
             <a class="addCltpLink" href="#nowhere"><button type="button" class="btn btn-primary addCltpButton" data-toggle="modal" data-target="#loginModal">
 				收藏问题</button>
-			</a>         
-          
+			</a>
+			<a class="addAnswerLink" href="addAnswer" target="_blank"><button type="button" class="btn btn-primary addCltpButton">去回答问题</button></a>         
         </div>
+       
     </div>
      
     <div style="clear:both"></div>
