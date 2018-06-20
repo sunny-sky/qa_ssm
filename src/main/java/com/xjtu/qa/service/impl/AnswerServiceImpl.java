@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xjtu.qa.mapper.AnswerMapper;
+import com.xjtu.qa.mapper.ReplyMapper;
 import com.xjtu.qa.pojo.Answer;
 import com.xjtu.qa.pojo.AnswerExample;
+import com.xjtu.qa.pojo.Reply;
 import com.xjtu.qa.pojo.User;
 import com.xjtu.qa.service.AnswerService;
+import com.xjtu.qa.service.ReplyService;
 import com.xjtu.qa.service.UserService;
 
 @Service
@@ -18,6 +21,11 @@ public class AnswerServiceImpl implements AnswerService {
 	AnswerMapper answerMapper;
     @Autowired
     UserService userService;
+    @Autowired
+    ReplyMapper replyMapper;
+    @Autowired
+    ReplyService replyService;
+    
     
     @Override
     public void add(Answer a) {
@@ -72,5 +80,13 @@ public class AnswerServiceImpl implements AnswerService {
     	}
         return answers;
     }
+    
+    @Override
+    public List<Reply> fillReply(int aid){
+    	List<Reply> replys = replyService.listReply(aid);
+    	return replys;
+    }
+    
+    
     
 }

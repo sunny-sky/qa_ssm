@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="modal" id="loginModal" tabindex="-1" role="dialog" >
 	<div class="modal-dialog loginDivInProductPageModalDiv">
@@ -52,4 +53,37 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+
+
+<div class="modal " id="replyModal" tabindex="-1" role="dialog" aria-labelledby="replyModalLabel">
+<div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">评论区</h4>
+          </div>
+          <div class="modal-body">
+          	<div>
+          		<p>以往评论</p>
+          		<p>${answer.content}</p>
+          		<c:forEach items="${replys}" var="r">
+          			<span class="text-success">${r.content}</span>
+          			<div >				
+					${r.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>
+					</div>
+          		</c:forEach>
+          	</div>
+          	<div>
+            	<p>写评论</p>
+            	<textarea class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+            <button class="btn btn-primary" type="button">提交</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
 </div>

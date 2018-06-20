@@ -1,5 +1,7 @@
 package com.xjtu.qa.pojo;
 
+import java.util.List;
+
 public class Answer {
     private Integer id;
 
@@ -15,8 +17,18 @@ public class Answer {
     
     /*非数据库字段*/
     private User user;
+    
+    private List<Reply> replys;
 
-    public User getUser() {
+    public List<Reply> getReplys() {
+		return replys;
+	}
+
+	public void setReplys(List<Reply> replys) {
+		this.replys = replys;
+	}
+
+	public User getUser() {
 		return user;
 	}
 

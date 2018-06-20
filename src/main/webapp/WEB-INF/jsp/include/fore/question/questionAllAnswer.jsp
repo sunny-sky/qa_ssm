@@ -3,11 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-	
+
+<script>
+
+</script>	
 <div class="questionAllAnswerDiv" >
 	<div class="questionAllAnswerTopPart">
 		<a href="#nowhere" class="questionAnswerTopPartSelectedLink selected">所有回答 <span class="questionAllAnswerTopAnswerLinkNumber">${answerNum}</span> </a>
-		<!-- <a href="#nowhere" class="questionAnswerTopAllAnswerLink">回答问题</a> -->
 	</div>
 	
 	
@@ -24,10 +26,13 @@
 					</div>
 					<div class="productReviewItemDate"><fmt:formatDate value="${a.creationtime}" pattern="yyyy-MM-dd"/></div>
 				</div>
-				<div class="productReviewItemUserInfo">
-				
+				<div class="productReviewItemUserInfo">				
 					${a.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>
-				</div>			
+				</div>
+				<div>
+					<button id="userlikebutton" type="button" class="btn btn-primary">点赞</button>
+					<button id="replybutton" type="button" class="btn btn-primary" data-toggle="modal" >评论</button>	
+				</div>
 				<div style="clear:both"></div>		
 			</div>
 		</c:forEach>

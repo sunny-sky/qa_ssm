@@ -51,6 +51,8 @@ $(function(){
         );      
         return false;
     });
+    
+    
     $(".addCltpLink").click(function(){
         var page = "forecheckLogin";
         $.get(
@@ -113,7 +115,19 @@ $(function(){
          
         return true;
     });
-     
+    
+    $("#replybutton").click(function(){
+    	var page = "forereplyAjax";
+    	var aid = "3";
+        $.get(
+                page,
+                {"aid":aid},
+                function(result){
+                    $("#replyModal").modal('show');                                          
+                }
+        );      
+        return true;
+    });
     
      
     
