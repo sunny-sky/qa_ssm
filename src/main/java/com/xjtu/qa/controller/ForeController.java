@@ -155,7 +155,7 @@ public class ForeController {
     }
     
     @RequestMapping("foredoanswer")
-    public String doreview( Model model,HttpSession session,@RequestParam("qid") int qid,String content) {
+    public String doreanswer( Model model,HttpSession session,@RequestParam("qid") int qid,String content) {
         Answer a = new Answer();
         a.setQid(qid);
         content = HtmlUtils.htmlEscape(content);

@@ -34,18 +34,15 @@ $(function(){
      
     $(".addCltpButton").removeAttr("disabled");
     
-    $(".addCltpLink").click(function(){
+    $(".addAnswerLink").click(function(){
     	var page = "forecheckLogin";
         $.get(
                 page,
                 function(result){
                     if("success"==result){
                     	var qid = ${q.id};
-                    	var addAnswerpage = "addAnswer";
-                    	$.get(
-                    			addAnswerpage,
-                    			{"qid":qid}
-                    			);
+                    	var addAnswerpage = "addAnswer"+'?qid='+qid;                  	
+                  		window.open(addAnswerpage)                    			
                     }
                     else{
                         $("#loginModal").modal('show');                     
