@@ -30,7 +30,7 @@
 					${r.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>
 				</div>
 				<div>
-					<button id="rptbutton" type="button" class="btn btn-primary">举报</button>
+					<button id="rptbutton" type="button" class="btn btn-danger">举报</button>
 					
 				</div>
 				<div style="clear:both"></div>		
