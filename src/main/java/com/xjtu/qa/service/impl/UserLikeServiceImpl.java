@@ -25,6 +25,17 @@ public class UserLikeServiceImpl implements UserLikeService{
 		userLikeMapper.deleteByPrimaryKey(id);
     }
 	@Override
+	public UserLike get(int userid,int aid){
+		UserLikeExample example =new UserLikeExample();
+        example.createCriteria().andUseridEqualTo(userid).andAidEqualTo(aid);
+        if(userLikeMapper.selectByExample(example).size()==0){
+        	return null;
+        }
+        UserLike userlike = userLikeMapper.selectByExample(example).get(0);
+        return userlike;
+	}
+	
+	@Override
 	public int getCount(int aid){
 		UserLikeExample example = new UserLikeExample();
 		example.createCriteria().andAidEqualTo(aid);
