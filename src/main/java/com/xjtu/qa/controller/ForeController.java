@@ -13,6 +13,7 @@ import com.github.pagehelper.PageHelper;
 import com.xjtu.qa.pojo.Answer;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Question;
+import com.xjtu.qa.pojo.Reply;
 import com.xjtu.qa.pojo.User;
 import com.xjtu.qa.service.AnswerService;
 import com.xjtu.qa.service.Category2Service;
@@ -169,7 +170,19 @@ public class ForeController {
      
         return "redirect:foreanswer?qid="+qid+"&showonly=true";
     }
- 
+    
+    @RequestMapping("forereply")
+    public String reply(Model model,HttpSession session,@RequestParam("aid") int aid){
+    	Answer answer = answerService.get(aid);
+    	List<Reply> replys = answerService.fillReply(aid);
+
+      
+    	session.setAttribute("answer", answer);
+    	System.out.print(answer.getContent());
+    	session.setAttribute("replys", replys);
+    	
+    	return "fore/reply";
+    }
 }
 
 

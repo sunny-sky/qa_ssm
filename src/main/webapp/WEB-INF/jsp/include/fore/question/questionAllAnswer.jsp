@@ -31,7 +31,7 @@
 				</div>
 				<div>
 					<button id="userlikebutton" type="button" class="btn btn-primary">点赞</button>
-					<button id="replybutton" type="button" class="btn btn-primary" data-toggle="modal" >评论</button>	
+					<a href="forereply?aid=${a.id}">评论</a>	
 				</div>
 				<div style="clear:both"></div>		
 			</div>

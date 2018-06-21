@@ -116,7 +116,7 @@ $(function(){
         return true;
     });
     
-    $("#replybutton").click(function(){
+    /* $("#replybutton").click(function(){
     	var page = "forereplyAjax";
     	var aid = "3";
         $.get(
@@ -127,7 +127,7 @@ $(function(){
                 }
         );      
         return true;
-    });
+    }); */
     
      
     

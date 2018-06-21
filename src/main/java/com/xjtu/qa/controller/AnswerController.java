@@ -1,7 +1,7 @@
 package com.xjtu.qa.controller;
 
 import java.io.IOException;
-import java.util.List;
+
 
 import javax.servlet.http.HttpSession;
 
@@ -9,12 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.util.HtmlUtils;
 
 import com.xjtu.qa.pojo.Answer;
-import com.xjtu.qa.pojo.Reply;
+
 
 import com.xjtu.qa.pojo.User;
 import com.xjtu.qa.service.AnswerService;
@@ -41,16 +40,16 @@ public class AnswerController {
         return "redirect:forequestion?qid="+Qid;
 	}
 	
-	@RequestMapping("forereplyAjax")
-    @ResponseBody
-    public String loginAjax(@RequestParam("aid") String aid, HttpSession session) {
-		Answer answer = answerService.get(Integer.parseInt(aid));
-        List<Reply> replys = answerService.fillReply(Integer.parseInt(aid));
- 
-        
-        session.setAttribute("answer", answer);
-        System.out.print(answer.getContent());
-        session.setAttribute("replys", replys);
-        return "success";
-    }
+//	@RequestMapping("forereplyAjax")
+//    @ResponseBody
+//    public String loginAjax(@RequestParam("aid") String aid, HttpSession session) {
+//		Answer answer = answerService.get(Integer.parseInt(aid));
+//        List<Reply> replys = answerService.fillReply(Integer.parseInt(aid));
+// 
+//        
+//        session.setAttribute("answer", answer);
+//        System.out.print(answer.getContent());
+//        session.setAttribute("replys", replys);
+//        return "success";
+//    }
 }
