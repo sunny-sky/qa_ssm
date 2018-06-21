@@ -19,6 +19,7 @@ import com.xjtu.qa.service.AnswerService;
 import com.xjtu.qa.service.Category2Service;
 import com.xjtu.qa.service.CategoryService;
 import com.xjtu.qa.service.QuestionService;
+import com.xjtu.qa.service.ReplyService;
 import com.xjtu.qa.service.UserService;
 
 import java.util.List;
@@ -38,6 +39,8 @@ public class ForeController {
     Category2Service category2Service;
     @Autowired
     AnswerService answerService;
+    @Autowired
+    ReplyService replyService;
 
 
  
@@ -182,6 +185,18 @@ public class ForeController {
     	session.setAttribute("replys", replys);
     	
     	return "fore/reply";
+    }
+    
+    @RequestMapping("fore_reply_add")
+    public String addreply(@RequestParam("aid") int aid,@RequestParam("userid") int userid,String content,HttpSession session){
+    	Reply reply = new Reply();
+    	reply.setAid(aid);
+    	reply.setUserid(userid);
+    	reply.setContent(content);
+    	replyService.add(reply);
+    	String url = "fore/reply";
+    	System.out.print(url);
+    	return url;
     }
 }
 
