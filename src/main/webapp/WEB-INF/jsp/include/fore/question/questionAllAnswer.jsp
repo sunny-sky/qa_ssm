@@ -5,10 +5,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <script>
-$(function(){
-	$(".userlikelink").click(function(){
+
+	<%-- $(".userlikelink").click(function (){
 		var page = "userlike_taggle";
-		var aid = "<%=aid%>";
+		var aid = x;
 		page = page+"?aid="+aid;
 		$.post(
 			page,
@@ -38,7 +38,30 @@ $(function(){
 				}			
 		
 			});
-	})
+	}) --%>
+$(function(){	
+	$(".userlikebutton").each(function(){
+		$(this).click(function(){
+			var page = "userlike_taggle";
+			aid = $(this).attr("id");
+			page = page+"?aid="+aid;
+			$.post(
+					page,
+					{"aid":aid},					
+					function(result){
+						if("success"==result){
+							$("#"+aid).html("已赞");
+							alert("已赞");
+
+						}
+						else{
+							$("#"+aid).html("点赞");
+							alert("点赞");							
+						}
+				});
+		});
+		
+	});
 });
 </script>
 	
@@ -65,10 +88,9 @@ $(function(){
 					${a.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>
 				</div>
 				<div>
-					<a id="userlikelink" class="userlikelink"><button id="userlikebuttonaid${a.id}" type="button" class="btn btn-primary">点赞</button></a>	
+					<a id="userlikelink${a.id}" class="userlikelink"><button id="${a.id}" type="button" class="btn btn-primary userlikebutton" >点赞</button></a>	
 					<%-- <a id="userlikelink" href="userlike_taggle?aid=${a.id}"><button id="userlikebutton" type="button" class="btn btn-primary">点赞</button></a> --%>	
-					<input type="hidden" id="valueofaid" name="valueofaid" value="${a.id}">
-					<% String aid = "${a.id}";%> 
+					<input type="hidden" id="valueofaid" name="valueofaid" value="${a.id}">					
 					<a href="forereply?aid=${a.id}"><button type="button" class="btn btn-primary">评论</button></a>	
 				</div>
 				<div style="clear:both"></div>		
