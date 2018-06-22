@@ -65,16 +65,18 @@ $(function(){
                                 addCltppage,
                                 {"qid":qid},
                                 function(result){
+                                	
                                     if("success"==result){
+                                    	var num = Number($(".cltProblemNum").text());
+                                    	num = 1 + num;
                                         $(".addCltpButton").html("已收藏");
-                                        $(".addCltpButton").attr("disabled","disabled");
-                                        $(".addCltpButton").css("background-color","lightgray")
-                                        $(".addCltpButton").css("border-color","lightgray")
-                                        $(".addCltpButton").css("color","black")
-                                         
+                                        $(".cltProblemNum").text(num);
                                     }
                                     else{
-                                         
+                                    	var num = Number($(".cltProblemNum").text());
+                                    	num = num - 1;
+                                    	$(".addCltpButton").html("收藏问题"); 
+                                    	$(".cltProblemNum").text(num);
                                     }
                                 }
                         );                          
@@ -116,18 +118,7 @@ $(function(){
         return true;
     });
     
-    /* $("#replybutton").click(function(){
-    	var page = "forereplyAjax";
-    	var aid = "3";
-        $.get(
-                page,
-                {"aid":aid},
-                function(result){
-                    $("#replyModal").modal('show');                                          
-                }
-        );      
-        return true;
-    }); */
+    
     
      
     
@@ -142,7 +133,7 @@ $(function(){
         <div class="questionTitle">${q.content}</div>
         <div class="questionAnswerAndCltp">
             <div>回答数 <span class="redColor boldWord"> ${answerNum}</span></div>   
-            <div>收藏数 <span class="redColor boldWord"> ${cltProblemNum}</span></div>    
+            <div>收藏数 <span class="redColor boldWord cltProblemNum"> ${cltProblemNum}</span></div>    
         </div>
         
        
@@ -150,7 +141,7 @@ $(function(){
             <a class="addCltpLink" href="#nowhere"><button type="button" class="btn btn-primary addCltpButton" data-toggle="modal" data-target="#loginModal">
 				收藏问题</button>
 			</a>
-			<a class="addAnswerLink" href="addAnswer" target="_blank"><button type="button" class="btn btn-primary addCltpButton">去回答问题</button></a>         
+			<a class="addAnswerLink" href="addAnswer" target="_blank"><button type="button" class="btn btn-primary addAnswerButton">去回答问题</button></a>         
         </div>
        
     </div>

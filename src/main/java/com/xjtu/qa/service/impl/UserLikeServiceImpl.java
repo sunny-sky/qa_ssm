@@ -13,9 +13,9 @@ import com.xjtu.qa.service.UserLikeService;
 @Service
 public class UserLikeServiceImpl implements UserLikeService{
 	@Autowired
-	UserLikeMapper userLikeMapper;
+	UserLikeMapper userLikeMapper;	
 	
-	@Override
+	@Override	
     public void add(UserLike ul) {
 		userLikeMapper.insert(ul);
     }

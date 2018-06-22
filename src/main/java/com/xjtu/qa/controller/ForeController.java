@@ -12,12 +12,14 @@ import org.springframework.web.util.HtmlUtils;
 import com.github.pagehelper.PageHelper;
 import com.xjtu.qa.pojo.Answer;
 import com.xjtu.qa.pojo.Category;
+import com.xjtu.qa.pojo.CltProblem;
 import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.Reply;
 import com.xjtu.qa.pojo.User;
 import com.xjtu.qa.service.AnswerService;
 import com.xjtu.qa.service.Category2Service;
 import com.xjtu.qa.service.CategoryService;
+import com.xjtu.qa.service.CltProblemService;
 import com.xjtu.qa.service.QuestionService;
 import com.xjtu.qa.service.ReplyService;
 import com.xjtu.qa.service.UserService;
@@ -41,6 +43,8 @@ public class ForeController {
     AnswerService answerService;
     @Autowired
     ReplyService replyService;
+    @Autowired
+    CltProblemService cltProblemService;
 
 
  
@@ -97,7 +101,9 @@ public class ForeController {
     	
     	List<Answer> answers = questionService.listAnswers(qid);
     	int answerNum = answers.size();
-    	int cltProblemNum = q.getCltProblemNum();
+    	List<CltProblem> cps = cltProblemService.list(qid);
+    	int cltProblemNum = cps.size();
+    	System.out.println("q.getCltProblemNum()="+cltProblemNum);
     	model.addAttribute("answerNum", answerNum);
     	model.addAttribute("cltProblemNum", cltProblemNum);
     	model.addAttribute("q", q);
@@ -198,6 +204,8 @@ public class ForeController {
     	System.out.print(url);
     	return url;
     }
+    
+    
 }
 
 

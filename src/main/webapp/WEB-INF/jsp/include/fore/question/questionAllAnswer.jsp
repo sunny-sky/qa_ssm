@@ -6,39 +6,6 @@
 
 <script>
 
-	<%-- $(".userlikelink").click(function (){
-		var page = "userlike_taggle";
-		var aid = x;
-		page = page+"?aid="+aid;
-		$.post(
-			page,
-			{"aid":aid},
-			
-			function(result){
-				if("success"==result){
-					aid = <%=session.getAttribute("aid")%>
-					var tid = "userlikebutton";
-					tid = tid+"aid"+aid;
-					$("#"+tid).html("已赞");
-					alert("已赞");
-					/* $(tid).css("background-color","lightgray")
-                    $(tid).css("border-color","lightgray")
-                    $(tid).css("color","black") */
-				}
-				else{
-						aid = <%=session.getAttribute("aid")%>
-						var tid = "userlikebutton";
-						tid = tid+"aid"+aid;
-						$("#"+tid).html("点赞");
-						alert("点赞");
-					/* $(tid).css("background-color","gray")
-                    $(tid).css("border-color","gray")
-                    $(tid).css("color","white") */
-					
-				}			
-		
-			});
-	}) --%>
 $(function(){	
 	$(".userlikebutton").each(function(){
 		$(this).click(function(){
@@ -51,12 +18,10 @@ $(function(){
 					function(result){
 						if("success"==result){
 							$("#"+aid).html("已赞");
-							alert("已赞");
 
 						}
 						else{
-							$("#"+aid).html("点赞");
-							alert("点赞");							
+							$("#"+aid).html("点赞");						
 						}
 				});
 		});
@@ -88,9 +53,7 @@ $(function(){
 					${a.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>
 				</div>
 				<div>
-					<a id="userlikelink${a.id}" class="userlikelink"><button id="${a.id}" type="button" class="btn btn-primary userlikebutton" >点赞</button></a>	
-					<%-- <a id="userlikelink" href="userlike_taggle?aid=${a.id}"><button id="userlikebutton" type="button" class="btn btn-primary">点赞</button></a> --%>	
-					<input type="hidden" id="valueofaid" name="valueofaid" value="${a.id}">					
+					<a id="userlikelink${a.id}" class="userlikelink"><button id="${a.id}" type="button" class="btn btn-primary userlikebutton" >点赞</button></a>											
 					<a href="forereply?aid=${a.id}"><button type="button" class="btn btn-primary">评论</button></a>	
 				</div>
 				<div style="clear:both"></div>		
