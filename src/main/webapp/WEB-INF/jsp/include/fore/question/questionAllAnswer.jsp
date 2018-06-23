@@ -27,6 +27,54 @@ $(function(){
 		});
 		
 	});
+	
+	$(".productParamter").ready(function(){
+		alert("ready");
+		var page = "forecheckLogin";
+        $.get(
+                page,
+                function(result){
+                    if("success"==result){
+                    	$(".userlikebutton").each(function(){
+                    		aid = $(this).attr("id");                    		
+                    		$("#"+aid).trigger("click");
+                    		$("#"+aid).trigger("click");
+                    	})	
+                    	/* alert("success");
+                    	$(".userlikebutton").each(function(){
+                    		
+		                    	var page = "userlike_taggle";
+		            			aid = $(this).attr("id");
+		            			alert(aid);
+		            			page = page+"?aid="+aid,
+		            			$.post(
+		            					page,
+		            					{"aid":aid},
+		            					function(result){
+		            						if("success"==result){
+		            							alert(aid);
+		            							$("#"+aid).html("已赞");
+		
+		            						}
+		            						else{
+		            							alert(aid);
+		            							$("#"+aid).html("点赞");						
+		            						}
+            							}
+		            			);
+		            			
+                    	})    */                     
+                    }
+                    else{
+                        $(".userlikebutton").each(function(){
+                        	aid = $(this).attr("id");
+                        	$("#"+aid).html("登陆后解锁点赞功能");
+                        }
+                    )}
+                }
+        );
+        return false;
+	});	
 });
 </script>
 	

@@ -139,7 +139,7 @@ $(function(){
        
         <div class="cltproblemDiv">
             <a class="addCltpLink" href="#nowhere"><button type="button" class="btn btn-primary addCltpButton" data-toggle="modal" data-target="#loginModal">
-				收藏问题</button>
+				${cltButton}</button>
 			</a>
 			<a class="addAnswerLink" href="addAnswer" target="_blank"><button type="button" class="btn btn-primary addAnswerButton">去回答问题</button></a>         
         </div>

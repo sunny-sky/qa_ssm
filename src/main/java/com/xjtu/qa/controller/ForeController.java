@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.HtmlUtils;
 
 import com.github.pagehelper.PageHelper;
+import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
 import com.xjtu.qa.pojo.Answer;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.CltProblem;
@@ -96,7 +97,7 @@ public class ForeController {
     }
     
     @RequestMapping("forequestion")
-    public String question(int qid, Model model){
+    public String question(int qid, Model model,HttpSession session){
     	Question q = questionService.get(qid);
     	
     	List<Answer> answers = questionService.listAnswers(qid);
@@ -104,17 +105,32 @@ public class ForeController {
     	List<CltProblem> cps = cltProblemService.list(qid);
     	int cltProblemNum = cps.size();
     	System.out.println("q.getCltProblemNum()="+cltProblemNum);
+    	String cltButton = null;
+    	if(session.getAttribute("user")==null){
+    		cltButton = "登陆后收藏";
+    	}
+    	else{
+    		User user = (User)session.getAttribute("user");
+    		CltProblem cp = cltProblemService.get(user.getId(), qid);
+    		System.out.println("由userid和qid查关注表"+cp.getUserid()+cp.getQid());
+    		if(cp.getId()==null){
+    			cltButton = "收藏问题";
+    		}
+    		else{
+    			cltButton = "已收藏";
+    		}
+    	}
     	model.addAttribute("answerNum", answerNum);
     	model.addAttribute("cltProblemNum", cltProblemNum);
     	model.addAttribute("q", q);
     	model.addAttribute("answers", answers);
-    	if(q.getAnswers()==null){
-    		System.out.println("q.getAnswers()为空");
-    	}
-    	
-    	for(Answer a:answers){
-    		System.out.println(a.getContent());
-    	}
+    	model.addAttribute("cltButton", cltButton);
+//    	if(q.getAnswers()==null){
+//    		System.out.println("q.getAnswers()为空");
+//    	}   	
+//    	for(Answer a:answers){
+//    		System.out.println(a.getContent());
+//    	}
     	
     	return "fore/question";
     	
