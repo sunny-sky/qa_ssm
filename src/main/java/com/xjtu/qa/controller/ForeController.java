@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.HtmlUtils;
 
 import com.github.pagehelper.PageHelper;
-import com.mysql.jdbc.interceptors.SessionAssociationInterceptor;
 import com.xjtu.qa.pojo.Answer;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.CltProblem;

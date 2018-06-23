@@ -55,4 +55,20 @@ public class UserLikeController {
 			return "fail";
 		}		
 	}
+	
+	@RequestMapping("userlike_get")
+	@ResponseBody
+	public String userlikeget(@RequestParam("aid") int aid, HttpSession session) throws IOException {
+		User user =(User)  session.getAttribute("user");
+		session.setAttribute("aid", aid);
+		System.out.println("userlike_get中aid:"+aid);
+		int userid = user.getId();
+		UserLike userLike = userLikeService.get(userid,aid);		
+		if(userLike==null){			
+			return "NO";
+		}
+		else{
+			return "YES";
+		}		
+	}
 }

@@ -11,7 +11,6 @@ $(function(){
 		$(this).click(function(){
 			var page = "userlike_taggle";
 			aid = $(this).attr("id");
-			page = page+"?aid="+aid;
 			$.post(
 					page,
 					{"aid":aid},					
@@ -29,16 +28,27 @@ $(function(){
 	});
 	
 	$(".productParamter").ready(function(){
-		alert("ready");
+
 		var page = "forecheckLogin";
         $.get(
                 page,
                 function(result){
                     if("success"==result){
                     	$(".userlikebutton").each(function(){
-                    		aid = $(this).attr("id");                    		
-                    		$("#"+aid).trigger("click");
-                    		$("#"+aid).trigger("click");
+                    		var page = "userlike_get";
+                			aid = $(this).attr("id");
+                			$.post(
+                					page,
+                					{"aid":aid},
+                					function(result){
+                						if("YES"==result){
+                							$("#"+aid).html("已赞");
+                						}
+                						else{
+                							$("#"+aid).html("点赞");						
+                						}
+                			});	
+                    		
                     	})	
                     	/* alert("success");
                     	$(".userlikebutton").each(function(){
