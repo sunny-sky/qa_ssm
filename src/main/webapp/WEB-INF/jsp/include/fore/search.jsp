@@ -57,6 +57,7 @@ $(function(){
 	<div class="searchDiv">
 		<input name="keyword" type="text" value="${param.keyword}" placeholder="《Java Web从入门到精通》 ">
 		<button  type="submit" class="searchButton">搜索问题</button>
+		<a href="foreaskQuestion"><button  type="button" class="searchButton" style="float:right;width:110">去提问题</button><a>
 		<div class="searchBelow">
 			<c:forEach items="${cs}" var="c" varStatus="st">
 				<c:if test="${st.count>=5 and st.count<=8}">

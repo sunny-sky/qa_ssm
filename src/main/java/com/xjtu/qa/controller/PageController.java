@@ -34,7 +34,7 @@ public class PageController {
         return "fore/login";
     }
 
-    @RequestMapping("askQuestion")
+    @RequestMapping("foreaskQuestion")
     public String askQuestion(Model model) {
     	List<Category> cs= categoryService.list();
     	List<Category2> c2s= category2Service.list();

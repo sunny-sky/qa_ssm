@@ -51,49 +51,12 @@ $(function(){
                     <tr>
 						<td>一级分类选择</td>
 						<td><input id="c1id" name="c1id" type="text" class="form-control" value="一级分类ID" style="width:200%"></td>
-						<%-- <td>
-							<div class="dropdown">
-							    <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-								选择一级分类
-							      <span class="	"></span>         
-							    </button>	
-							     
-							    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-							    	<c:forEach items="${cs}" var="c">
-								      <li>
-								         <a href="#">${c.name}</a>            
-								      </li>
-							    	</c:forEach>
-							    	<li>
-								    	<a href="#">null</a>            
-								    </li>
-							    </ul>
-							</div>
-						</td> --%>
+						
                     </tr>
 					
                     <tr>
                     	<td>二级分类选择</td>
-                    	<td><input id="c2id" name="c2id" type="text" class="form-control" value="二级分类ID" style="width:200%"></td>
-                    	<%-- <td>
-							<div class="dropdown">
-							    <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-							       	选择二级分类
-							      <span class="caret"></span>         
-							    </button>
-							     
-							    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-							    	<c:forEach items="${c2s}" var="c2">
-								      <li>
-								         <a href="#">${c2.name}</a>            
-								      </li>
-							    	</c:forEach>
-							    	<li>
-								    	<a href="#">null</a>            
-								    </li>
-							    </ul>
-							</div>
-						</td> --%>
+                    	<td><input id="c2id" name="c2id" type="text" class="form-control" value="二级分类ID" style="width:200%"></td>                   	
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">
@@ -107,4 +70,4 @@ $(function(){
      
 </div>
  
-<%@include file="../include/admin/adminFooter.jsp"%>
+<%@include file="../include/fore/footer.jsp"%>
