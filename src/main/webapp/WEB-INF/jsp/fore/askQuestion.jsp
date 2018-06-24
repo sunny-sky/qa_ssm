@@ -50,13 +50,20 @@ $(function(){
      				
                     <tr>
 						<td>一级分类选择</td>
-						<td><input id="c1id" name="c1id" type="text" class="form-control" value="一级分类ID" style="width:200%"></td>
+						<td>
+                        	<select id="c1id" name="c1id" >
+	        					<option value="-1">请选择</option>
+	        					<c:forEach items="${cs}" var="c">
+					            	<option value="${c.id}">${c.name }</option>
+					       		</c:forEach>
+				    		</select>
+				    	</td>
 						
                     </tr>
 					
                     <tr>
                     	<td>二级分类选择</td>
-                    	<td><input id="c2id" name="c2id" type="text" class="form-control" value="二级分类ID" style="width:200%"></td>                   	
+                    	<td><input id="c2id" name="c2id" type="number" class="form-control" value="二级分类ID" style="width:200%"></td>                   	
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">

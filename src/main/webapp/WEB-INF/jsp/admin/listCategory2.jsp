@@ -34,8 +34,6 @@ $(function(){
                     <th>二级分类名称</th>
                     <th>一级分类id</th>
                     <th>一级分类名称</th>
-                    <th>属性管理</th>
-                    <th>产品管理</th>
                     <th>编辑</th>
                     <th>删除</th>
                 </tr>
@@ -49,9 +47,6 @@ $(function(){
                     <td>${c2.name}</td>
                     <td>${c2.category.id}</td>
                     <td>${c2.category.name}</td>
-                         
-                    <td><a href="admin_property_list?cid=${c2.id}"><span class="glyphicon glyphicon-th-list"></span></a></td>                   
-                    <td><a href="admin_product_list?cid=${c2.id}"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>                  
                     <td><a href="admin_category2_edit?id=${c2.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
                     <td><a deleteLink="true" href="admin_category2_delete?id=${c2.id}"><span class="   glyphicon glyphicon-trash"></span></a></td>
      
