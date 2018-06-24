@@ -6,7 +6,7 @@
 
 
 
-<title>编辑分类</title>
+<title>编辑二级分类</title>
 
 
 <script>
@@ -32,7 +32,7 @@
 	<div class="panel panel-warning editDiv">
 		<div class="panel-heading">编辑分类</div>
 		<div class="panel-body">
-			<form method="post" id="editForm" action="admin_category_update"  enctype="multipart/form-data">
+			<form method="post" id="editForm" action="admin_category2_update"  enctype="multipart/form-data">
 				<table class="editTable">
 					<tr>
 						<td>分类名称</td>
@@ -44,9 +44,20 @@
 							<input id="categoryPic" accept="image/*" type="file" name="image" />
 						</td>
 					</tr>
+					<tr>
+                        <td>一级分类id</td>
+                        <td>
+                        	<select id="c1id" name="c1id" >
+	        					<option value="-1">请选择</option>
+	        					<c:forEach items="${cs}" var="c">
+					            	<option value="${c.id}">${c.name }</option>
+					       		</c:forEach>
+				    		</select>
+				    	</td>
+                    </tr>
 					<tr class="submitTR">
 						<td colspan="2" align="center">
-							<input type="hidden" name="id" value="${c.id}">
+							<input type="hidden" name="id" value="${c2.id}">
 							<button type="submit" class="btn btn-success">提 交</button>
 						</td>
 					</tr>

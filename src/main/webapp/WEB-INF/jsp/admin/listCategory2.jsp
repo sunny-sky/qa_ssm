@@ -11,8 +11,7 @@ $(function(){
     $("#addForm").submit(function(){
         if(!checkEmpty("name","分类名称"))
             return false;
-        if(!checkEmpty("category2Pic","分类图片"))
-            return false;
+        
         return true;
     });
 });
@@ -83,7 +82,15 @@ $(function(){
                     </tr>
                     <tr>
                         <td>一级分类id</td>
-                        <td><input  id="c1id" name="c1id" type="text" class="form-control"></td>
+                        <!-- <td><input  id="c1id" name="c1id" type="text" class="form-control"></td> -->
+                        <td>
+                        	<select id="c1id" name="c1id" >
+	        					<option value="-1">请选择</option>
+	        					<c:forEach items="${cs}" var="c">
+					            	<option value="${c.id}">${c.name }</option>
+					       		</c:forEach>
+				    		</select>
+				    	</td>
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">
