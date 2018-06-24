@@ -32,6 +32,7 @@ $(function(){
 		var page = "forecheckLogin";
         $.get(
                 page,
+                false,
                 function(result){
                     if("success"==result){
                     	$(".userlikebutton").each(function(){

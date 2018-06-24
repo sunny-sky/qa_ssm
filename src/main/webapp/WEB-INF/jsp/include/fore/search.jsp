@@ -73,4 +73,4 @@ $(function(){
 		</div>
 	</div>
 </form>
-<a class="askQuestionLink" href="askQuestion" ><button type="button" class="btn btn-primary askQuestionButton" data-toggle="modal" data-target="#loginModal">去提问</button></a>
+

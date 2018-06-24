@@ -61,44 +61,43 @@ $(function(){
 <div class="categoryWithCarousel">
 
 
-<div class="headbar show1">
-	<div class="head ">
+	<div class="headbar show1">
+		<div class="head " style="margin-left:350">
+		
+			<span style="margin-left:10px" class="glyphicon glyphicon-th-list"></span>
+			<span style="margin-left:10px" >问题分类</span>
+			
+		</div>
+		
+		<div class="rightMenu">
 	
-		<span style="margin-left:10px" class="glyphicon glyphicon-th-list"></span>
-		<span style="margin-left:10px" >问题分类</span>
+	
+			<c:forEach items="${cs}" var="c" varStatus="st">
+				<c:if test="${st.count<=5}">
+					<span>
+					<a href="forecategory?cid=${c.id}">
+						${c.name}
+					</a></span>			
+				</c:if>
+			</c:forEach>
+		</div>
 		
 	</div>
+
 	
-	<div class="rightMenu">
-
-
-		<c:forEach items="${cs}" var="c" varStatus="st">
-			<c:if test="${st.count<=5}">
-				<span>
-				<a href="forecategory?cid=${c.id}">
-					${c.name}
-				</a></span>			
-			</c:if>
-		</c:forEach>
+	<div style="position: relative">
+		<%@include file="categoryMenu.jsp" %>
 	</div>
 	
-</div>
-
+	<div style="position: relative;left:0;top: 0;">
+		<%@include file="productsAsideCategorys.jsp" %>
+	</div>
 	
-<div style="position: relative">
-	<%@include file="categoryMenu.jsp" %>
-</div>
+	
 
-<div style="position: relative;left:0;top: 0;">
-	<%@include file="productsAsideCategorys.jsp" %>
-</div>
+		<%@include file="carousel.jsp" %>
 
-
-
-<%@include file="carousel.jsp" %>
-
-<div class="carouselBackgroundDiv">
-</div>
+	<div class="carouselBackgroundDiv"></div>
 
 </div>
 
