@@ -21,12 +21,10 @@ $(function(){
             <div class="row show1">
                 <c:forEach items="${c2s}" var="c2">
                     <c:if test="${!empty c2.name}">
-                        <a href="foreproduct?pid=${c2.id}">
-                            <%-- <c:forEach items="${fn:split(c2.name, ' ')}" var="title" varStatus="st">
-                                <c:if test="${st.index==0}"> --%>
+                        <a href="forecategory2?c2id=${c2.id}">
+
                                     ${c2.name}
-                                <%-- </c:if>
-                            </c:forEach> --%>
+
                         </a>
                     </c:if>
                 </c:forEach>

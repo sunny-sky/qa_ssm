@@ -37,9 +37,9 @@ $(function(){
 		var left = $(this).position().left;
 		var top = $(this).position().top;
 		var width = $(this).css("width");
-		var destLeft = parseInt(left) + parseInt(width)/2;
+		var destLeft = parseInt(left) + parseInt(width)*2/3;
 		$("img#catear").css("left",destLeft);
-		$("img#catear").css("top",top-20);
+		$("img#catear").css("top",top-24);
 		$("img#catear").fadeIn(500);
 				
 	});
@@ -47,7 +47,7 @@ $(function(){
 		$("img#catear").hide();
 	});
 	
-	var left = $("div#carousel-of-product").offset().left;
+	var left = $("div#carousel-of-product").offset().left+300;
 	$("div.categoryMenu").css("left",left-20);
 	$("div.categoryWithCarousel div.head").css("margin-left",left);
 	$("div.productsAsideCategorys").css("left",left-20);
@@ -62,7 +62,7 @@ $(function(){
 
 
 	<div class="headbar show1">
-		<div class="head " style="margin-left:350">
+		<div class="head " >
 		
 			<span style="margin-left:10px" class="glyphicon glyphicon-th-list"></span>
 			<span style="margin-left:10px" >问题分类</span>
@@ -90,7 +90,7 @@ $(function(){
 	</div>
 	
 	<div style="position: relative;left:0;top: 0;">
-		<%@include file="productsAsideCategorys.jsp" %>
+		<%@include file="category2sAsideCategorys.jsp" %>
 	</div>
 	
 	

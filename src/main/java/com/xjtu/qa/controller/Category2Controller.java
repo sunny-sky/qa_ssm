@@ -18,8 +18,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xjtu.qa.mapper.QuestionMapper;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Category2;
+import com.xjtu.qa.pojo.Category2Example;
+import com.xjtu.qa.pojo.Question;
+import com.xjtu.qa.pojo.QuestionExample;
 import com.xjtu.qa.service.Category2Service;
 import com.xjtu.qa.service.CategoryService;
 import com.xjtu.qa.util.ImageUtil;
@@ -34,6 +38,9 @@ public class Category2Controller {
 	 Category2Service category2Service;
 	 @Autowired
 	 CategoryService categoryService;
+	 @Autowired
+	 QuestionMapper questionMapper;
+	 
 	    //后台首页
 	    @RequestMapping("admin_category2_list")
 	    public String list(Model model,Page page){
@@ -111,5 +118,26 @@ public class Category2Controller {
 	            ImageIO.write(img, "jpg", file);
 	        }
 	        return "redirect:/admin_category2_list";
+	    }
+	    
+	    @RequestMapping("forecategory2")
+	    public String forecategory(@RequestParam("c2id") int c2id, HttpSession session) throws IOException {
+	    	System.out.println("类别c2id："+c2id);
+	    	Category2 c2 = category2Service.get(c2id);
+	    	
+	    	Category c = categoryService.get(c2.getC1id());
+    		
+	    	QuestionExample example = new QuestionExample();
+	    	example.createCriteria().andC2idEqualTo(c2id);
+	    	example.setOrderByClause("id desc");
+	    	List<Question> qs = questionMapper.selectByExample(example);
+	    	for(Question q:qs){
+	    		System.out.println("问题qid："+q.getId());
+	    	}
+	    	    	
+	    	session.setAttribute("c", c);
+	    	session.setAttribute("c2", c2);
+	    	session.setAttribute("qs", qs);
+	    	return "fore/category2";
 	    }
 }

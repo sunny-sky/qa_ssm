@@ -3,7 +3,7 @@
 	
 <div id="carousel-of-product"  class="carousel-of-product carousel slide1" data-ride="carousel">
   <!-- Indicators -->
-  <ol class="carousel-indicators">
+  <ol class="carousel-indicators" style="margin:7%">
     <li data-target="#carousel-of-product" data-slide-to="0" class="active"></li>
     <li data-target="#carousel-of-product" data-slide-to="1"></li>
     <li data-target="#carousel-of-product" data-slide-to="2"></li>

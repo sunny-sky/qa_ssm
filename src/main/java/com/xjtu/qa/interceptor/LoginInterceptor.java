@@ -43,6 +43,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                 "reply",                
                 "question",
                 "category",
+                "category2",
                 "search",
                 "answer"};
  
