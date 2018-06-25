@@ -75,7 +75,7 @@ $(function(){
 			<c:forEach items="${cs}" var="c" varStatus="st">
 				<c:if test="${st.count<=5}">
 					<span>
-					<a href="forecategory?cid=${c.id}">
+					<a href="forecategory?c1id=${c.id}">
 						${c.name}
 					</a></span>			
 				</c:if>

@@ -12,11 +12,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.xjtu.qa.mapper.Category2Mapper;
+import com.xjtu.qa.mapper.QuestionMapper;
 import com.xjtu.qa.pojo.Category;
+import com.xjtu.qa.pojo.Category2;
+import com.xjtu.qa.pojo.Category2Example;
+import com.xjtu.qa.pojo.Question;
+import com.xjtu.qa.pojo.QuestionExample;
 import com.xjtu.qa.service.CategoryService;
 import com.xjtu.qa.util.ImageUtil;
 import com.xjtu.qa.util.Page;
@@ -27,6 +34,13 @@ import com.xjtu.qa.util.UploadedImageFile;
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
+    @Autowired
+    Category2Mapper category2Mapper;
+    @Autowired
+    QuestionMapper questionMapper;
+    
+    
+    
     //后台首页
     @RequestMapping("admin_category_list")
     public String list(Model model,Page page){
@@ -91,5 +105,33 @@ public class CategoryController {
             ImageIO.write(img, "jpg", file);
         }
         return "redirect:/admin_category_list";
+    }
+    
+    @RequestMapping("forecategory")
+    public String forecategory(@RequestParam("c1id") int c1id, HttpSession session) throws IOException {
+    	System.out.println("类别c1id："+c1id);
+    	Category c = categoryService.get(c1id);
+    	
+    	Category2Example example = new Category2Example();
+    	example.createCriteria().andC1idEqualTo(c1id);
+    	example.setOrderByClause("id desc");
+    	List<Category2> c2s = category2Mapper.selectByExample(example);
+    	for(Category2 c2:c2s){
+    		System.out.println("类别c2id："+c2.getId());
+    	}
+    	
+    		
+    	QuestionExample qExample = new QuestionExample();
+    	qExample.createCriteria().andC1idEqualTo(c1id);
+    	qExample.setOrderByClause("id desc");
+    	List<Question> qs = questionMapper.selectByExample(qExample);
+    	for(Question q:qs){
+    		System.out.println("问题qid："+q.getId());
+    	}
+    	    	
+    	session.setAttribute("c", c);
+    	session.setAttribute("c2s", c2s);
+    	session.setAttribute("qs", qs);
+    	return "fore/category";
     }
 }
