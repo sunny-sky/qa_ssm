@@ -110,9 +110,7 @@ public class ForeController {
     	else{
     		User user = (User)session.getAttribute("user");    		
     		CltProblem cp = cltProblemService.get(user.getId(), qid);
-    		//System.out.println("由userid和qid查关注表userid"+cp.getUserid());
-    		//System.out.println("由userid和qid查关注表qid"+cp.getQid());
-    		if(cp.getId()==null){
+    		if(cp==null){
     			cltButton = "收藏问题";
     		}
     		else{
@@ -124,13 +122,7 @@ public class ForeController {
     	model.addAttribute("q", q);
     	model.addAttribute("answers", answers);
     	model.addAttribute("cltButton", cltButton);
-//    	if(q.getAnswers()==null){
-//    		System.out.println("q.getAnswers()为空");
-//    	}   	
-//    	for(Answer a:answers){
-//    		System.out.println(a.getContent());
-//    	}
-    	
+
     	return "fore/question";
     	
     }
