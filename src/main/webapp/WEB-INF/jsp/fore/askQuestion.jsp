@@ -14,8 +14,38 @@ $(function(){
             return false;
         return true;
     });
+    
 });
 
+function category1(){
+	var c1id = $("#c1id").val();
+    $("#c2id").empty();
+    page = "Cascading_menu?c1id="+c1id;
+    if(c1id !=null){
+         $.ajax({
+        		url :page,
+        		type : 'post',
+        		dataType : 'json',                
+                async : false,
+                //contentType: "application/json; charset=utf-8",
+                success :function(data) {
+                    console.log(data);                  
+                       if(data!=null){
+                    	   //var c2s = ${c2s};
+                           $("#c2id").prepend("<option value='-1'>请选择</option>");
+                            $.each(data,function(i,item){  
+                            	$.each(item,function(j,val){
+                                      $("#c2id").append("<option value="+val.id+">二级分类id："+val.id+"二级分类名"+val.name+"</option>");                                                                         
+                            	 })
+                            }); 
+                       }                                                    
+                }
+
+         })
+    }else{
+        alert("请选择一级分类！！");
+    }
+}
 
 
  
@@ -51,7 +81,7 @@ $(function(){
                     <tr>
 						<td>一级分类选择</td>
 						<td>
-                        	<select id="c1id" name="c1id" >
+                        	<select id="c1id" name="c1id" onchange="category1();">
 	        					<option value="-1">请选择</option>
 	        					<c:forEach items="${cs}" var="c">
 					            	<option value="${c.id}">${c.name }</option>
@@ -63,7 +93,12 @@ $(function(){
 					
                     <tr>
                     	<td>二级分类选择</td>
-                    	<td><input id="c2id" name="c2id" type="number" class="form-control" value="二级分类ID" style="width:200%"></td>                   	
+                    	<!-- <td><input id="c2id" name="c2id" type="number" class="form-control" value="二级分类ID" style="width:200%"></td>  -->   
+                    	<td>
+                        	<select id="c2id" name="c2id">
+	        					<option value="-1">请选择</option>
+				    		</select>
+				    	</td>               	
                     </tr>
                     <tr class="submitTR">
                         <td colspan="2" align="center">

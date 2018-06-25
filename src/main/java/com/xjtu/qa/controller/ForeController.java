@@ -96,9 +96,8 @@ public class ForeController {
     }
     
     @RequestMapping("forequestion")
-    public String question(int qid, Model model,HttpSession session){
-    	Question q = questionService.get(qid);
-    	
+    public String question(@RequestParam("qid") int qid, Model model,HttpSession session){
+    	Question q = questionService.get(qid);    	
     	List<Answer> answers = questionService.listAnswers(qid);
     	int answerNum = answers.size();
     	List<CltProblem> cps = cltProblemService.list(qid);
@@ -109,9 +108,10 @@ public class ForeController {
     		cltButton = "登陆后收藏";
     	}
     	else{
-    		User user = (User)session.getAttribute("user");
+    		User user = (User)session.getAttribute("user");    		
     		CltProblem cp = cltProblemService.get(user.getId(), qid);
-    		System.out.println("由userid和qid查关注表"+cp.getUserid()+cp.getQid());
+    		//System.out.println("由userid和qid查关注表userid"+cp.getUserid());
+    		//System.out.println("由userid和qid查关注表qid"+cp.getQid());
     		if(cp.getId()==null){
     			cltButton = "收藏问题";
     		}

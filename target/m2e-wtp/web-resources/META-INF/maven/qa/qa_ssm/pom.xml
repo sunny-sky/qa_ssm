@@ -166,6 +166,11 @@
       <artifactId>mybatis-generator-core</artifactId>
       <version>${mybatis-generator.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20180130</version>
+    </dependency>
     
     
   </dependencies>
