@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8" isELIgnored="false"%>
+<script type="text/javascript" src="js/jquery.md5.js" ></script>
 
 
 <script>
@@ -16,7 +17,7 @@
                 $("div.registerErrorMessageDiv").css("visibility","visible");
                 return false;
             }
-            if(0==$("#password").val().length){
+            if(0==$("#password1").val().length){
                 $("span.errorMessage").html("请输入密码");
                 $("div.registerErrorMessageDiv").css("visibility","visible");
                 return false;
@@ -26,11 +27,19 @@
                 $("div.registerErrorMessageDiv").css("visibility","visible");
                 return false;
             }
-            if($("#password").val() !=$("#repeatpassword").val()){
+            if($("#password1").val() !=$("#repeatpassword").val()){
                 $("span.errorMessage").html("重复密码不一致");
                 $("div.registerErrorMessageDiv").css("visibility","visible");
                 return false;
             }
+            	
+            var psw1 = $("#password1").val();
+            var psw = $.md5(psw1);
+            $("#password").val(psw);
+            
+//            alert($("#password").val());
+            
+            
             
 
             return true;
@@ -67,7 +76,8 @@
 			</tr>
 			<tr>
 				<td class="registerTableLeftTD">登陆密码</td>
-				<td class="registerTableRightTD"><input id="password" name="password" type="password"  placeholder="设置你的登陆密码" > </td>
+				<td class="registerTableRightTD"><input id="password1" name="password1" type="password"  placeholder="设置你的登陆密码" > </td>
+				<td><input id="password" name="password" type="hidden"  ></td>
 			</tr>
 			<tr>
 				<td class="registerTableLeftTD">密码确认</td>
