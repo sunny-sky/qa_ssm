@@ -15,4 +15,8 @@ public interface CltProblemService {
 
     CltProblem get(int userid,int qid);
     List<CltProblem> list(int qid);
+    
+    List<CltProblem> listByUserId(int userid);
+    
+    public void fillQuestion(List<CltProblem> cps);
 }

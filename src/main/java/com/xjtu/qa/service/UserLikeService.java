@@ -2,6 +2,9 @@ package com.xjtu.qa.service;
 
 
 
+import java.util.List;
+
+
 import com.xjtu.qa.pojo.UserLike;
 
 public interface UserLikeService {
@@ -10,4 +13,7 @@ public interface UserLikeService {
 	UserLike get(int userid,int aid);
 	
 	int getCount(int qid);
+	List<UserLike> listByUserId(int userid);
+	
+	void fillAnswer(List<UserLike> uls);
 }

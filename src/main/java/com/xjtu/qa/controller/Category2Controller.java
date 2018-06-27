@@ -21,7 +21,6 @@ import com.github.pagehelper.PageInfo;
 import com.xjtu.qa.mapper.QuestionMapper;
 import com.xjtu.qa.pojo.Category;
 import com.xjtu.qa.pojo.Category2;
-import com.xjtu.qa.pojo.Category2Example;
 import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.QuestionExample;
 import com.xjtu.qa.service.Category2Service;

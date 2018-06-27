@@ -19,5 +19,6 @@ public interface AnswerService {
     int getCount(int qid);
     List<Answer> list(int qid);
     List<Reply> fillReply(int aid);
+    List<Answer> listByUserId(int userid);
   
 }

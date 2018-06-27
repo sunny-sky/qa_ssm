@@ -87,6 +87,13 @@ public class AnswerServiceImpl implements AnswerService {
     	return replys;
     }
     
-    
+    @Override
+    public List<Answer> listByUserId(int userid){
+    	AnswerExample example = new AnswerExample();
+    	example.createCriteria().andUseridEqualTo(userid);
+        example.setOrderByClause("id desc");
+        List<Answer> result = answerMapper.selectByExample(example);
+        return result;
+    }
     
 }

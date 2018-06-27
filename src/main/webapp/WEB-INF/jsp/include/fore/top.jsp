@@ -21,7 +21,7 @@
 
 
 	<span class="pull-right">
-			<a href="forebought">个人中心</a>
+			<a href="forePersonalCenter">个人中心</a>
 	</span>		
 			
 

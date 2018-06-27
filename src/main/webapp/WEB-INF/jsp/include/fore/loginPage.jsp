@@ -19,7 +19,6 @@
             var psw1 = $("#password1").val();
             var psw = $.md5(psw1);
             $("#password").val(psw);
-            alert($("#password").val());
             return true;
         });
 

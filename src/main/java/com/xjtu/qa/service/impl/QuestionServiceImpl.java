@@ -124,6 +124,14 @@ public class QuestionServiceImpl implements QuestionService{
         get(qid).setAnswers(answers);
         return answers;
     }
-
+    
+    @Override
+    public List<Question> listByUserId(int userid){
+    	QuestionExample example = new QuestionExample();
+    	example.createCriteria().andUseridEqualTo(userid);
+        example.setOrderByClause("id desc");
+        List<Question> result = questionMapper.selectByExample(example);
+        return result;
+    }
 
 }

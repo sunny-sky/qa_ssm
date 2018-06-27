@@ -6,8 +6,19 @@ public class CltProblem {
     private Integer userid;
 
     private Integer qid;
+    
+    //非数据库字段
+    private Question question;
 
-    public Integer getId() {
+    public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
+	public Integer getId() {
         return id;
     }
 

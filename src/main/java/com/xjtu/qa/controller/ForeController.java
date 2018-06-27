@@ -16,12 +16,14 @@ import com.xjtu.qa.pojo.CltProblem;
 import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.Reply;
 import com.xjtu.qa.pojo.User;
+import com.xjtu.qa.pojo.UserLike;
 import com.xjtu.qa.service.AnswerService;
 import com.xjtu.qa.service.Category2Service;
 import com.xjtu.qa.service.CategoryService;
 import com.xjtu.qa.service.CltProblemService;
 import com.xjtu.qa.service.QuestionService;
 import com.xjtu.qa.service.ReplyService;
+import com.xjtu.qa.service.UserLikeService;
 import com.xjtu.qa.service.UserService;
 
 import java.util.List;
@@ -45,7 +47,8 @@ public class ForeController {
     ReplyService replyService;
     @Autowired
     CltProblemService cltProblemService;
-
+    @Autowired
+    UserLikeService userLikeService;
 
  
     @RequestMapping("forehome")
@@ -213,7 +216,28 @@ public class ForeController {
     	return url;
     }
     
-    
+    @RequestMapping("forePersonalCenter")
+    public String addreply(HttpSession session){
+    	User user = (User)session.getAttribute("user");
+    	int userid = user.getId();
+    	session.setAttribute("user", user);
+    	
+    	List<Question> qs = questionService.listByUserId(userid);
+    	session.setAttribute("qs", qs);
+    	
+    	List<Answer> as = answerService.listByUserId(userid);
+    	session.setAttribute("as", as);
+    	
+    	List<CltProblem> cps = cltProblemService.listByUserId(userid);
+    	cltProblemService.fillQuestion(cps);
+    	session.setAttribute("cps", cps);
+    	
+    	List<UserLike> uls = userLikeService.listByUserId(userid);
+    	userLikeService.fillAnswer(uls);
+    	session.setAttribute("uls", uls);
+    	 	
+    	return "fore/personalCenter";
+    }
 }
 
 

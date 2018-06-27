@@ -6,8 +6,19 @@ public class UserLike {
     private Integer userid;
 
     private Integer aid;
+    
+    //非数据库字段
+    private Answer answer;
 
-    public Integer getId() {
+    public Answer getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(Answer answer) {
+		this.answer = answer;
+	}
+
+	public Integer getId() {
         return id;
     }
 

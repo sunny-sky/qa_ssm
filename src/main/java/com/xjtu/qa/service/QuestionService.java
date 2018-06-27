@@ -25,4 +25,6 @@ public interface QuestionService {
     public void fill(Category category);
     
     List<Answer> listAnswers(int qid);
+    List<Question> listByUserId(int userid);
+    
 }

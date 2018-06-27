@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 import com.xjtu.qa.mapper.CltProblemMapper;
 import com.xjtu.qa.pojo.CltProblem;
 import com.xjtu.qa.pojo.CltProblemExample;
+import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.service.CltProblemService;
+import com.xjtu.qa.service.QuestionService;
 
 @Service
 public class CltProblemServiceImpl implements CltProblemService {
 	@Autowired
 	CltProblemMapper cltProblemMapper;
+	@Autowired
+	QuestionService questionService;
 	
 	@Override
     public void add(CltProblem cp) {
@@ -42,5 +46,22 @@ public class CltProblemServiceImpl implements CltProblemService {
 		example.setOrderByClause("id desc");
 		List<CltProblem> cps =cltProblemMapper.selectByExample(example);
 		return cps;
+	}
+	
+	@Override
+	public List<CltProblem> listByUserId(int userid){
+		CltProblemExample example =new CltProblemExample();
+		example.createCriteria().andUseridEqualTo(userid);
+		example.setOrderByClause("id desc");
+		List<CltProblem> cps =cltProblemMapper.selectByExample(example);
+		return cps;
+	}
+	
+	@Override
+	public void fillQuestion(List<CltProblem> cps){
+		for(CltProblem cp:cps){
+			Question question = questionService.get(cp.getQid());
+			cp.setQuestion(question);
+		}
 	}
 }
