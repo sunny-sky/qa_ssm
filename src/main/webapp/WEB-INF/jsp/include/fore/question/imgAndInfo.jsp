@@ -92,13 +92,14 @@ $(function(){
      
     $("button.loginSubmitButton").click(function(){
         var name = $("#name").val();
-        var password = $("#password").val();
+        var password1 = $("#password1").val();
          
-        if(0==name.length||0==password.length){
+        if(0==name.length||0==password1.length){
             $("span.errorMessage").html("请输入账号密码");
             $("div.loginErrorMessageDiv").show();           
             return false;
         }
+        var password = $.md5(password1);
          
         var page = "foreloginAjax";
         $.get(

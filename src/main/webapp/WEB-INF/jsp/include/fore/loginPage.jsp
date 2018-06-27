@@ -6,16 +6,20 @@
     $(function(){
 
         <c:if test="${!empty msg}">
-        $("span.errorMessage").html("${msg}");
-        $("div.loginErrorMessageDiv").show();
+	        $("span.errorMessage").html("${msg}");
+	        $("div.loginErrorMessageDiv").show();
         </c:if>
 
         $("form.loginForm").submit(function(){
-            if(0==$("#name").val().length||0==$("#password").val().length){
+            if(0==$("#name").val().length||0==$("#password1").val().length){
                 $("span.errorMessage").html("请输入账号密码");
                 $("div.loginErrorMessageDiv").show();
                 return false;
             }
+            var psw1 = $("#password1").val();
+            var psw = $.md5(psw1);
+            $("#password").val(psw);
+            alert($("#password").val());
             return true;
         });
 
@@ -61,7 +65,8 @@
 				<span class="loginInputIcon ">
 					<span class=" glyphicon glyphicon-lock"></span>
 				</span>
-				<input id="password" name="password" type="password" placeholder="密码" type="text">
+				<input id="password1" name="password1" type="password" placeholder="密码" type="text">
+				<input id="password" name="password" type="hidden"  >
 			</div>
 			<span class="text-danger">请牢记自己的账号密码</span><br><br>
 

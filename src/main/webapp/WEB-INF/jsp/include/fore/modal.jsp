@@ -25,7 +25,8 @@
 							<span class="loginInputIcon ">
 								<span class=" glyphicon glyphicon-lock"></span>
 							</span>
-					<input id="password" name="password"  type="password" placeholder="密码" type="text">
+					<input id="password1" name="password1"  type="password" placeholder="密码" type="text">
+					<input id="password" name="password" type="hidden"  >
 				</div>
 				<span class="text-danger">请牢记自己的账号密码 </span><br><br>
 				<div>
