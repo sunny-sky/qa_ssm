@@ -45,7 +45,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                 "category",
                 "category2",
                 "search",
-                "answer"};
+                "answer",
+                };
  
         String uri = request.getRequestURI();
         uri = StringUtils.remove(uri, contextPath);
@@ -56,6 +57,20 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                 User user =(User) session.getAttribute("user");
                 if(null==user){
                     response.sendRedirect("loginPage");
+                    return false;
+                }
+            }
+        }
+        
+        String[] noNeedAuthPage1 = new String[]{
+	        "Login",
+	        "LoginCheck"};
+        if(uri.startsWith("/admin")){
+            String method = StringUtils.substringAfterLast(uri,"/fore" );
+            if(!Arrays.asList(noNeedAuthPage1).contains(method)){
+                User user =(User) session.getAttribute("user");
+                if(null==user){
+                    response.sendRedirect("adminLogin");
                     return false;
                 }
             }

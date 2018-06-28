@@ -48,4 +48,9 @@ public class PageController {
     public String addAnswer(){
     	return "fore/addAnswer";
     }
+    
+    @RequestMapping("adminLogin")
+    public String loginAdmin(){
+    	return "admin/loginAdminPage";
+    }
 }
