@@ -134,7 +134,8 @@ $(function(){
         <div class="questionTitle">${q.content}</div>
         <div class="questionAnswerAndCltp">
             <div>回答数 <span class="redColor boldWord"> ${answerNum}</span></div>   
-            <div>收藏数 <span class="redColor boldWord cltProblemNum"> ${cltProblemNum}</span></div>    
+            <div>收藏数 <span class="redColor boldWord cltProblemNum"> ${cltProblemNum}</span></div>   
+            <div>提问时间： <span class="redColor boldWord">${q.creationtime}</span></div> 
         </div>
         
        

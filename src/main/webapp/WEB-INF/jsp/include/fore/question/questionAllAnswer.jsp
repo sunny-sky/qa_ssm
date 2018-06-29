@@ -51,30 +51,7 @@ $(function(){
                 			});	
                     		
                     	})	
-                    	/* alert("success");
-                    	$(".userlikebutton").each(function(){
-                    		
-		                    	var page = "userlike_taggle";
-		            			aid = $(this).attr("id");
-		            			alert(aid);
-		            			page = page+"?aid="+aid,
-		            			$.post(
-		            					page,
-		            					{"aid":aid},
-		            					function(result){
-		            						if("success"==result){
-		            							alert(aid);
-		            							$("#"+aid).html("已赞");
-		
-		            						}
-		            						else{
-		            							alert(aid);
-		            							$("#"+aid).html("点赞");						
-		            						}
-            							}
-		            			);
-		            			
-                    	})    */                     
+                    	               
                     }
                     else{
                         $(".userlikebutton").each(function(){
@@ -96,7 +73,6 @@ $(function(){
 	
 	
 	<div class="productParamterPart">
-		<div class="productParamter">问题回答：</div>
 		
 
 		<c:forEach items="${answers}" var="a">
@@ -106,7 +82,7 @@ $(function(){
 					<div class="productReviewItemContent">
 						${a.content}						
 					</div>
-					<div class="productReviewItemDate"><fmt:formatDate value="${a.creationtime}" pattern="yyyy-MM-dd"/></div>
+					<div class="productReviewItemDate">${a.creationtime}</div>
 				</div>
 				<div class="productReviewItemUserInfo">				
 					${a.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>

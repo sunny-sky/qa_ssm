@@ -1,7 +1,8 @@
 package com.xjtu.qa.controller;
 
 import java.io.IOException;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
@@ -35,21 +36,16 @@ public class AnswerController {
         User user =(User)  session.getAttribute("user");
         a.setUserid(user.getId());
         a.setUser(user);
+        
+        SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" );
+        Date d= new Date();
+        String str = sdf.format(d);
+        a.setCreationtime(str);
+        
         answerService.add(a);
             
         return "redirect:forequestion?qid="+Qid;
 	}
 	
-//	@RequestMapping("forereplyAjax")
-//    @ResponseBody
-//    public String loginAjax(@RequestParam("aid") String aid, HttpSession session) {
-//		Answer answer = answerService.get(Integer.parseInt(aid));
-//        List<Reply> replys = answerService.fillReply(Integer.parseInt(aid));
-// 
-//        
-//        session.setAttribute("answer", answer);
-//        System.out.print(answer.getContent());
-//        session.setAttribute("replys", replys);
-//        return "success";
-//    }
+
 }

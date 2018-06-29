@@ -26,6 +26,8 @@ import com.xjtu.qa.service.ReplyService;
 import com.xjtu.qa.service.UserLikeService;
 import com.xjtu.qa.service.UserService;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -75,6 +77,12 @@ public class ForeController {
             model.addAttribute("user", null);
             return "fore/register";
         }
+        
+        SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" );
+        Date d= new Date();
+        String str = sdf.format(d);
+        user.setCreationtime(str);
+        
         userService.add(user);
     
         return "redirect:registerSuccessPage";
@@ -202,7 +210,7 @@ public class ForeController {
 
       
     	session.setAttribute("answer", answer);
-    	System.out.print(answer.getContent());
+//    	System.out.print(answer.getContent());
     	session.setAttribute("replys", replys);
     	
     	return "fore/reply";
@@ -214,6 +222,12 @@ public class ForeController {
     	reply.setAid(aid);
     	reply.setUserid(userid);
     	reply.setContent(content);
+    	
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" );
+        Date d= new Date();
+        String str = sdf.format(d);
+        reply.setCreationtime(str);
+    	
     	replyService.add(reply);
     	String url = "fore/reply";
     	System.out.print(url);

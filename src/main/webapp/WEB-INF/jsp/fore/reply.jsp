@@ -24,7 +24,7 @@
 					<div class="productReviewItemContent">
 						${r.content}						
 					</div>
-					<div class="productReviewItemDate"><fmt:formatDate value="${r.creationtime}" pattern="yyyy-MM-dd"/></div>
+					<div class="productReviewItemDate">${r.creationtime}</div>
 				</div>
 				<div class="productReviewItemUserInfo">				
 					${r.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>

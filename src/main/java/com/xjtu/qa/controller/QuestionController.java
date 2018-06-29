@@ -1,6 +1,8 @@
 package com.xjtu.qa.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -37,8 +39,14 @@ public class QuestionController {
     	q.setC2id(c2id);
     	User u = (User)session.getAttribute("user");
     	q.setUserid(u.getId());
+    	
+    	SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss" );
+        Date d= new Date();
+        String str = sdf.format(d);
+    	q.setCreationtime(str);
+        
     	questionService.add(q);
-        System.out.println(q.getId());
+//        System.out.println(q.getId());
         
  
         return "fore/askQuestion";

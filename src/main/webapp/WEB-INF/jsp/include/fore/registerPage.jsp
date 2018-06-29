@@ -106,7 +106,7 @@
 			
 			<tr>
 				<td class="registerTableLeftTD">个性签名</td>
-				<td class="registerTableRightTD"><textarea cols="90" rows="8" id="address" name="address"   placeholder="请输入你的个性签名" > </textarea>
+				<td class="registerTableRightTD"><textarea cols="90" rows="8" id="signature" name="signature"   placeholder="请输入你的个性签名" > </textarea>
 			</tr>			
 
 			<tr>
