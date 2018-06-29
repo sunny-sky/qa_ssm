@@ -50,7 +50,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
  
         String uri = request.getRequestURI();
         uri = StringUtils.remove(uri, contextPath);
-//        System.out.println(uri);
+        System.out.println(uri);
         if(uri.startsWith("/fore")){
             String method = StringUtils.substringAfterLast(uri,"/fore" );
             if(!Arrays.asList(noNeedAuthPage).contains(method)){
@@ -66,7 +66,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	        "Login",
 	        "LoginCheck"};
         if(uri.startsWith("/admin")){
-            String method = StringUtils.substringAfterLast(uri,"/fore" );
+            String method = StringUtils.substringAfterLast(uri,"/admin" );
             if(!Arrays.asList(noNeedAuthPage1).contains(method)){
                 User user =(User) session.getAttribute("user");
                 if(null==user){

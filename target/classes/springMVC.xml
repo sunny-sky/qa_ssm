@@ -34,7 +34,13 @@
 
 	<mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/fore*"/>
+            <mvc:mapping path="/fore*" />
+            <bean class="com.xjtu.qa.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin*" />
             <bean class="com.xjtu.qa.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
