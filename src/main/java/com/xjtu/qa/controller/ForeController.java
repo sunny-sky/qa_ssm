@@ -208,7 +208,9 @@ public class ForeController {
     	Answer answer = answerService.get(aid);
     	List<Reply> replys = answerService.fillReply(aid);
 
+    	int replyNum = replys.size();
       
+    	session.setAttribute("replyNum", replyNum);
     	session.setAttribute("answer", answer);
 //    	System.out.print(answer.getContent());
     	session.setAttribute("replys", replys);

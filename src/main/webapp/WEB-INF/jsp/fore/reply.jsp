@@ -11,7 +11,7 @@
         <div class="questionTitle">${answer.content}</div>
     </div>
 	<div class="questionAllAnswerTopPart">
-		<a href="#nowhere" class="questionAnswerTopPartSelectedLink selected">回答评论 <span class="questionAllAnswerTopAnswerLinkNumber">？？？</span> </a>
+		<a href="#nowhere" class="questionAnswerTopPartSelectedLink selected">回答评论 <span class="questionAllAnswerTopAnswerLinkNumber">${replyNum}</span> </a>
 	</div>	
 	<div class="productParamterPart">
 		<div class="productParamter">问题评论：</div>
