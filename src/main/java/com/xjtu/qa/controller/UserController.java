@@ -26,6 +26,20 @@ public class UserController {
  
         @SuppressWarnings("unchecked")
 		List<User> us= userService.list();
+        for(User u:us){
+        	String ua = u.getAuthority();
+        	System.out.println(ua);
+        	if(ua==null){
+        		u.setStatus("正常");
+        	}
+        	else if(ua.equals("-1")){
+        		u.setStatus("禁止登陆");
+        	}
+        	else{
+        		u.setStatus("正常");
+        	}
+        	System.out.println(u.getStatus());
+        }
  
         int total = (int) new PageInfo<>(us).getTotal();
         page.setTotal(total);

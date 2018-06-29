@@ -89,6 +89,10 @@ public class ForeController {
             model.addAttribute("msg", "账号密码错误");
             return "fore/login";
         }
+        if("-1"==user.getAuthority()){
+            model.addAttribute("msg", "账号被限制登陆");
+            return "fore/login";
+        }
         session.setAttribute("user", user);
         return "redirect:forehome";
     }
@@ -146,7 +150,7 @@ public class ForeController {
         name = HtmlUtils.htmlEscape(name);
         User user = userService.get(name,password);
  
-        if(null==user){
+        if(null==user||user.getAuthority()=="-1"){
             return "fail";
         }
         session.setAttribute("user", user);

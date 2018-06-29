@@ -27,7 +27,7 @@ public class AdminController {
             model.addAttribute("msg", "账号密码错误");
             return "admin/loginAdminPage";
         }
-		if(user.getAuthority()==null){
+		if(!user.getAuthority().equals("1")){
 			model.addAttribute("msg", "无登陆权限");
 			return "admin/loginAdminPage";
 		}
@@ -41,5 +41,22 @@ public class AdminController {
         session.removeAttribute("user");
         return "redirect:adminLogin";
     }
-
+	
+	@RequestMapping("admin_user_blacklist")
+	public String adminUserBlacklist(@RequestParam("id") int id, HttpSession session) {
+        User user = userService.get(id);
+        user.setAuthority("-1");
+        userService.update(user);
+        return "redirect:admin_user_list";
+    }
+	
+	
+	@RequestMapping("admin_user_rmblacklist")
+	public String adminUserRmblacklist(@RequestParam("id") int id, HttpSession session) {
+        User user = userService.get(id);
+        user.setAuthority("");
+        System.out.println( user.getAuthority());
+        userService.update(user);
+        return "redirect:admin_user_list";
+    }
 }

@@ -28,6 +28,8 @@
 				<th>性别</th>
 				<th>生日</th>
 				<th>邮箱</th>
+				<th>用户状态</th>
+				<th>加入黑名单</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -38,6 +40,10 @@
 					<td>${u.gender}</td>
 					<td>${u.birthday}</td>
 					<td>${u.email}</td>
+					<td>${u.status}</td>
+					<td><a deleteLink="true" href="admin_user_blacklist?id=${u.id}"><span class="glyphicon glyphicon-remove"></span></a>
+					<a deleteLink="true" href="admin_user_rmblacklist?id=${u.id}"><span class="glyphicon glyphicon-ok"></span></a></td>
+					
 				</tr>
 			</c:forEach>
 			</tbody>

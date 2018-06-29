@@ -20,8 +20,19 @@ public class User {
     private String address;
 
     private String authority;
+    
+    //非数据库
+    private String status;
 
-    public Integer getId() {
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Integer getId() {
         return id;
     }
 
