@@ -80,4 +80,12 @@ public class RptProblemServiceImpl implements RptProblemService {
     	rp.setQuestion(question);
     }
     
+    @Override
+    public List<RptProblem> listByQid(int qid){
+    	RptProblemExample example =new RptProblemExample();
+    	example.createCriteria().andQidEqualTo(qid);
+        example.setOrderByClause("id desc");
+        return rptProblemMapper.selectByExample(example);
+    }
+    
 }

@@ -143,7 +143,8 @@ $(function(){
             <a class="addCltpLink" href="#nowhere"><button type="button" class="btn btn-primary addCltpButton" data-toggle="modal" data-target="#loginModal">
 				${cltButton}</button>
 			</a>
-			<a class="addAnswerLink" href="addAnswer" target="_blank"><button type="button" class="btn btn-primary addAnswerButton">去回答问题</button></a>         
+			<a class="addAnswerLink" href="addAnswer" target="_blank"><button type="button" class="btn btn-success addAnswerButton">去回答问题</button></a>
+			<a  href="fore_addRptQuestion?qid=${q.id}" ><button type="button" class="btn btn-warning">举报该问题</button></a>         
         </div>
        
     </div>

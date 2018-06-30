@@ -74,10 +74,10 @@ public class AnswerServiceImpl implements AnswerService {
         example.setOrderByClause("id desc");  
         List<Answer> answers =answerMapper.selectByExample(example);
         setUser(answers);
-        for(Answer a:answers){
-    		System.out.println("AnswerServiceImpl中"+a.getContent());
-    		System.out.println("AnswerServiceImpl中"+a.getId());
-    	}
+//        for(Answer a:answers){
+//    		System.out.println("AnswerServiceImpl中"+a.getContent());
+//    		System.out.println("AnswerServiceImpl中"+a.getId());
+//    	}
         return answers;
     }
     

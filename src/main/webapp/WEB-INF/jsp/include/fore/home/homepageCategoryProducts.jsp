@@ -23,9 +23,9 @@
 				<c:forEach items="${c.questions}" var="q" varStatus="st">
 					<c:if test="${st.count<=5}">
 						<div class="questionItem" >
-							<a href="forequestion?qid=${q.id}">${q.id}</a>
+							<div>问题编号：${q.id}</div>
 							<a class="questionItemDescLink" href="forequestion?qid=${q.id}">
-								<span class="questionItemDesc">[热搜]
+								<span class="questionItemDesc">
 								${fn:substring(q.content, 0, 20)}<br/>
 								共有回答：${q.answerNum}个<br/>
 								共收藏：${q.cltProblemNum}次

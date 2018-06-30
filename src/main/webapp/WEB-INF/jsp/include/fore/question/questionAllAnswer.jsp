@@ -5,6 +5,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <script>
+/* function judgeUserlikeButton(){
+	$(".userlikebutton").each(function(){
+    	aid = $(this).attr("id");
+    	$("#"+aid).html("登陆后解锁点赞功能");
+    }
+} */
+
 
 $(function(){	
 	$(".userlikebutton").each(function(){
@@ -27,15 +34,16 @@ $(function(){
 		
 	});
 	
-	$(".productParamter").ready(function(){
+	/* $(".productParamter").ready(function(){
 
 		var page = "forecheckLogin";
         $.get(
                 page,
-                false,
+
                 function(result){
                     if("success"==result){
-                    	$(".userlikebutton").each(function(){
+                    	judgeUserlikeButton();
+                    	 $(".userlikebutton").each(function(){
                     		var page = "userlike_get";
                 			aid = $(this).attr("id");
                 			$.post(
@@ -50,7 +58,7 @@ $(function(){
                 						}
                 			});	
                     		
-                    	})	
+                    	}) 	
                     	               
                     }
                     else{
@@ -62,7 +70,7 @@ $(function(){
                 }
         );
         return false;
-	});	
+	});	 */
 });
 </script>
 	
@@ -88,7 +96,7 @@ $(function(){
 					${a.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>
 				</div>
 				<div>
-					<a id="userlikelink${a.id}" class="userlikelink"><button id="${a.id}" type="button" class="btn btn-primary userlikebutton" >点赞</button></a>											
+					<a id="userlikelink${a.id}" class="userlikelink"><button id="${a.id}" type="button" class="btn btn-primary userlikebutton" >${a.userLikeStatus}</button></a>											
 					<a href="forereply?aid=${a.id}"><button type="button" class="btn btn-primary">评论</button></a>	
 				</div>
 				<div style="clear:both"></div>		

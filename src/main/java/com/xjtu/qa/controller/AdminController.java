@@ -1,5 +1,7 @@
 package com.xjtu.qa.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.HtmlUtils;
 
+import com.xjtu.qa.pojo.Answer;
+import com.xjtu.qa.pojo.CltProblem;
+import com.xjtu.qa.pojo.Reply;
+import com.xjtu.qa.pojo.RptProblem;
 import com.xjtu.qa.pojo.User;
+import com.xjtu.qa.service.AnswerService;
+import com.xjtu.qa.service.CltProblemService;
+import com.xjtu.qa.service.QuestionService;
+import com.xjtu.qa.service.ReplyService;
+import com.xjtu.qa.service.RptProblemService;
 import com.xjtu.qa.service.UserService;
 
 @Controller
@@ -17,6 +28,16 @@ import com.xjtu.qa.service.UserService;
 public class AdminController {
 	@Autowired
 	UserService userService;
+	@Autowired
+	AnswerService answerService;
+	@Autowired
+	ReplyService replyService;
+	@Autowired
+	QuestionService questionService;
+	@Autowired
+	RptProblemService rptProblemService;
+	@Autowired
+	CltProblemService cltProblemService;
 	
 	
 	@RequestMapping("adminLoginCheck")
@@ -58,5 +79,31 @@ public class AdminController {
         System.out.println( user.getAuthority());
         userService.update(user);
         return "redirect:admin_user_list";
+    }
+	
+	@RequestMapping("admin_question_delete")
+	public String adminQuestionDelete(@RequestParam("qid") int qid, HttpSession session) {
+        List<Answer> as = answerService.list(qid);
+        for(Answer a:as){
+        	List<Reply> rs = replyService.listReply(a.getId());
+        	for(Reply r:rs){
+        		replyService.delete(r.getId());
+        	}
+        	answerService.delete(a.getId());
+        }
+        
+        List<RptProblem> rps = rptProblemService.listByQid(qid);
+        for(RptProblem rp:rps){
+        	rptProblemService.delete(rp.getId());
+        }
+        
+        List<CltProblem> cps = cltProblemService.list(qid);
+        for(CltProblem cp:cps){
+        	cltProblemService.delete(cp.getId());
+        }
+        
+        questionService.delete(qid);
+        		
+        return "redirect:admin_rptproblem_list";
     }
 }

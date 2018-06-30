@@ -47,9 +47,13 @@
 										<td>
 						<button rpid=${rp.id} class="questionContent btn btn-primary btn-xs">查看详情</button>
 				
-							<a href="admin_rptproblem_delete?id=${rp.id}">
-								<button class="btn btn-primary btn-xs">忽视举报</button>
-							</a>
+						<a href="admin_rptproblem_delete?id=${rp.id}">
+							<button class="btn btn-success btn-xs">忽视举报</button>
+						</a>
+						
+						<a href="admin_question_delete?qid=${rp.qid}">
+							<button class="btn btn-danger btn-xs">删除该问题</button>
+						</a>
 
 					</td>
 				</tr>

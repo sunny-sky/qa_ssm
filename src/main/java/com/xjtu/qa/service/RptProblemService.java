@@ -17,6 +17,7 @@ public interface RptProblemService {
     void setUser(List<RptProblem> rps);
     void setQuestion(List<RptProblem> rps);
 
+    List<RptProblem> listByQid(int qid);
 
  
 }

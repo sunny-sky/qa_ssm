@@ -73,6 +73,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                     response.sendRedirect("adminLogin");
                     return false;
                 }
+                String auth = user.getAuthority();
+                if(!auth.equals("1")){
+                	response.sendRedirect("adminLogin");
+                    return false;
+                }
             }
         }
  

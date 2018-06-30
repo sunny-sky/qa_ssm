@@ -10,10 +10,12 @@ import com.xjtu.qa.mapper.QuestionMapper;
 import com.xjtu.qa.mapper.AnswerMapper;
 import com.xjtu.qa.pojo.Answer;
 import com.xjtu.qa.pojo.Category;
+import com.xjtu.qa.pojo.CltProblem;
 import com.xjtu.qa.pojo.Question;
 import com.xjtu.qa.pojo.QuestionExample;
 import com.xjtu.qa.service.AnswerService;
 import com.xjtu.qa.service.CategoryService;
+import com.xjtu.qa.service.CltProblemService;
 import com.xjtu.qa.service.QuestionService;
 import com.xjtu.qa.service.UserLikeService;
 
@@ -30,6 +32,8 @@ public class QuestionServiceImpl implements QuestionService{
     AnswerService answerService;
     @Autowired
     AnswerMapper answerMapper;
+    @Autowired
+    CltProblemService cltProblemService;
     
     @Override
     public void add(Question q) {
@@ -76,6 +80,10 @@ public class QuestionServiceImpl implements QuestionService{
     @Override
     public void setAnswerAndCltProblemNum(Question q) {
     	int answerNum = answerService.getCount(q.getId());
+    	List<CltProblem> cps = cltProblemService.list(q.getId());
+    	int cltProblemNum = cps.size();
+    	
+    	q.setCltProblemNum(cltProblemNum);
         q.setAnswerNum(answerNum);
         
     }

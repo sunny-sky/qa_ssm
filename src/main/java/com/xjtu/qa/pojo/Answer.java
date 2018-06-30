@@ -18,7 +18,19 @@ public class Answer {
     /*非数据库字段*/
     private User user;
     
-    private List<Reply> replys;
+    private String userLikeStatus;
+    
+	private List<Reply> replys;
+    
+    public String getUserLikeStatus() {
+		return userLikeStatus;
+	}
+
+	public void setUserLikeStatus(String userLikeStatus) {
+		this.userLikeStatus = userLikeStatus;
+	}
+
+
 
     public List<Reply> getReplys() {
 		return replys;

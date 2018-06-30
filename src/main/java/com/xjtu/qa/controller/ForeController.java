@@ -59,6 +59,10 @@ public class ForeController {
         category2Service.fill(cs);
         category2Service.fillByRow(cs);
         questionService.fill(cs);
+        for(Category c:cs){
+            questionService.setAnswerAndCltProblemNum(c.getQuestions()); 	
+        }
+        
         model.addAttribute("cs", cs);
         return "fore/home";
     }
@@ -122,16 +126,31 @@ public class ForeController {
     	String cltButton = null;
     	if(session.getAttribute("user")==null){
     		cltButton = "登陆后收藏";
+			for(Answer a:answers){
+				a.setUserLikeStatus("未登录");
+			}
     	}
     	else{
     		User user = (User)session.getAttribute("user");    		
     		CltProblem cp = cltProblemService.get(user.getId(), qid);
     		if(cp==null){
     			cltButton = "收藏问题";
+
     		}
     		else{
     			cltButton = "已收藏";
+    			for(Answer a:answers){
+        			UserLike ul = userLikeService.get(user.getId(), a.getId());
+        			if(ul==null){
+        				a.setUserLikeStatus("点赞");
+        			}
+        			else{
+        				a.setUserLikeStatus("已赞");
+        			}
+        		}
     		}
+    		
+
     	}
     	model.addAttribute("answerNum", answerNum);
     	model.addAttribute("cltProblemNum", cltProblemNum);
