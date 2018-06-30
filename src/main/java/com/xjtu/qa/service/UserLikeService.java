@@ -12,8 +12,9 @@ public interface UserLikeService {
 	void delete(int id);
 	UserLike get(int userid,int aid);
 	
-	int getCount(int qid);
+	int getCount(int aid);
 	List<UserLike> listByUserId(int userid);
+
 	
 	void fillAnswer(List<UserLike> uls);
 }

@@ -2,6 +2,10 @@ package com.xjtu.qa.controller;
 
 import java.io.IOException;
 
+
+import com.alibaba.fastjson.JSON;
+
+
 import javax.servlet.http.HttpSession;
 
 
@@ -11,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.xjtu.qa.pojo.Answer;
+import com.xjtu.qa.pojo.JsonInForeQuestion;
 import com.xjtu.qa.pojo.User;
 import com.xjtu.qa.pojo.UserLike;
 import com.xjtu.qa.service.AnswerService;
@@ -31,28 +35,37 @@ public class UserLikeController {
 		User user =(User)  session.getAttribute("user");
 		session.setAttribute("aid", aid);
 		System.out.println(aid);
-		Answer answer = answerService.get(aid);
-		if(answer.getLikenumber()==null){
-			answer.setLikenumber(0);
-		}
-		int userLikeNum = answer.getLikenumber();
+//		Answer answer = answerService.get(aid);
+//		if(answer.getLikenumber()==null){
+//			answer.setLikenumber(0);
+//		}
+//		int userLikeNum = answer.getLikenumber();
 		int userid = user.getId();
-		UserLike userLike = userLikeService.get(userid,aid);		
+		UserLike userLike = userLikeService.get(userid,aid);
+		JsonInForeQuestion data = new JsonInForeQuestion();
+		
 		if(userLike==null){
 			UserLike userLike1 = new UserLike();
 			userLike1.setAid(aid);
 			userLike1.setUserid(userid);
 			userLikeService.add(userLike1);
-			userLikeNum = userLikeNum + 1;
-			answer.setLikenumber(userLikeNum);
-			return "success";
+//			userLikeNum = userLikeNum + 1;
+//			answer.setLikenumber(userLikeNum);
+			String num =  String.valueOf(userLikeService.getCount(aid));
+			data.setStatus("success");
+			data.setNum(num);
+			return JSON.toJSONString(data);
 		}
 		else{
 			int id = userLike.getId();
 			userLikeService.delete(id);
-			userLikeNum = userLikeNum - 1;
-			answer.setLikenumber(userLikeNum);
-			return "fail";
+//			userLikeNum = userLikeNum - 1;
+//			answer.setLikenumber(userLikeNum);
+			String num = String.valueOf(userLikeService.getCount(aid));
+			data.setStatus("fail");
+			data.setNum(num);
+			
+			return JSON.toJSONString(data);
 		}		
 	}
 	

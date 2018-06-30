@@ -66,4 +66,6 @@ public class UserLikeServiceImpl implements UserLikeService{
 			ul.setAnswer(answer);
 		}
 	}
+	
+
 }

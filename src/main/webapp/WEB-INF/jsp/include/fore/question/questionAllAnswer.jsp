@@ -5,12 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <script>
-/* function judgeUserlikeButton(){
-	$(".userlikebutton").each(function(){
-    	aid = $(this).attr("id");
-    	$("#"+aid).html("登陆后解锁点赞功能");
-    }
-} */
+
 
 
 $(function(){	
@@ -18,59 +13,27 @@ $(function(){
 		$(this).click(function(){
 			var page = "userlike_taggle";
 			aid = $(this).attr("id");
-			$.post(
-					page,
-					{"aid":aid},					
-					function(result){
-						if("success"==result){
+			$.ajax({
+					url:page,
+					type : 'post',
+					data:{"aid":aid},
+					dataType:'json',
+					success:function(data){
+						alert(data.status+"数量"+data.num);
+						if("success"==data.status){
+							
 							$("#"+aid).html("已赞");
-
+							$("#userLikeNum"+aid).html(data.num);
 						}
 						else{
-							$("#"+aid).html("点赞");						
+							$("#"+aid).html("点赞");
+							$("#userLikeNum"+aid).html(data.num);
 						}
-				});
+					}});
 		});
 		
 	});
 	
-	/* $(".productParamter").ready(function(){
-
-		var page = "forecheckLogin";
-        $.get(
-                page,
-
-                function(result){
-                    if("success"==result){
-                    	judgeUserlikeButton();
-                    	 $(".userlikebutton").each(function(){
-                    		var page = "userlike_get";
-                			aid = $(this).attr("id");
-                			$.post(
-                					page,
-                					{"aid":aid},
-                					function(result){
-                						if("YES"==result){
-                							$("#"+aid).html("已赞");
-                						}
-                						else{
-                							$("#"+aid).html("点赞");						
-                						}
-                			});	
-                    		
-                    	}) 	
-                    	               
-                    }
-                    else{
-                        $(".userlikebutton").each(function(){
-                        	aid = $(this).attr("id");
-                        	$("#"+aid).html("登陆后解锁点赞功能");
-                        }
-                    )}
-                }
-        );
-        return false;
-	});	 */
 });
 </script>
 	
@@ -96,8 +59,9 @@ $(function(){
 					${a.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>
 				</div>
 				<div>
-					<a id="userlikelink${a.id}" class="userlikelink"><button id="${a.id}" type="button" class="btn btn-primary userlikebutton" >${a.userLikeStatus}</button></a>											
-					<a href="forereply?aid=${a.id}"><button type="button" class="btn btn-primary">评论</button></a>	
+					<div style="float:right">点赞数 <span id="userLikeNum${a.id}"  class="redColor boldWord"> ${a.likenumber}</span></div>
+					<a id="userlikelink${a.id}" class="userlikelink" ><button id="${a.id}" type="button" class="btn btn-primary userlikebutton" style="float:right;display:inline-block">${a.userLikeStatus}</button></a>											
+					<a href="forereply?aid=${a.id}" ><button type="button" class="btn btn-primary" style="float:right">评论</button></a>	
 				</div>
 				<div style="clear:both"></div>		
 			</div>

@@ -122,6 +122,12 @@ public class ForeController {
     	int answerNum = answers.size();
     	List<CltProblem> cps = cltProblemService.list(qid);
     	int cltProblemNum = cps.size();
+    	
+    	for(Answer a:answers){
+    		a.setLikenumber(userLikeService.getCount(a.getId()));
+    		answerService.update(a);
+    	}
+    	
     	System.out.println("q.getCltProblemNum()="+cltProblemNum);
     	String cltButton = null;
     	if(session.getAttribute("user")==null){
@@ -138,16 +144,16 @@ public class ForeController {
 
     		}
     		else{
-    			cltButton = "已收藏";
-    			for(Answer a:answers){
-        			UserLike ul = userLikeService.get(user.getId(), a.getId());
-        			if(ul==null){
-        				a.setUserLikeStatus("点赞");
-        			}
-        			else{
-        				a.setUserLikeStatus("已赞");
-        			}
-        		}
+    			cltButton = "已收藏";    			
+    		}
+    		for(Answer a:answers){
+    			UserLike ul = userLikeService.get(user.getId(), a.getId());
+    			if(ul==null){
+    				a.setUserLikeStatus("点赞");
+    			}
+    			else{
+    				a.setUserLikeStatus("已赞");
+    			}
     		}
     		
 
