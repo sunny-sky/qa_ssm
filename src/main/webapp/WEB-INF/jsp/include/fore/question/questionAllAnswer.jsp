@@ -19,7 +19,7 @@ $(function(){
 					data:{"aid":aid},
 					dataType:'json',
 					success:function(data){
-
+						alert(data.status+"数量"+data.num);
 						if("success"==data.status){
 							
 							$("#"+aid).html("已赞");
@@ -58,10 +58,10 @@ $(function(){
 				<div class="productReviewItemUserInfo">				
 					${a.user.anonymousName}<span class="userInfoGrayPart">（匿名）</span>
 				</div>
-				<div style="height:20;line-height: 4;">
-					<div style="height:20">点赞数 <span id="userLikeNum${a.id}"  class="redColor boldWord"> ${a.likenumber}</span></div>
-					<a id="userlikelink${a.id}" class="userlikelink" style="float:right;display:block;"><button id="${a.id}" type="button" class="btn btn-primary userlikebutton" >${a.userLikeStatus}</button></a>											
-					<p><a href="forereply?aid=${a.id}" style="float:right;display:block;"><button type="button" class="btn btn-primary" >评论</button></a></p>
+				<div>
+					<div style="float:right">点赞数 <span id="userLikeNum${a.id}"  class="redColor boldWord"> ${a.likenumber}</span></div>
+					<a id="userlikelink${a.id}" class="userlikelink" ><button id="${a.id}" type="button" class="btn btn-primary userlikebutton" style="float:right;display:inline-block">${a.userLikeStatus}</button></a>											
+					<a href="forereply?aid=${a.id}" ><button type="button" class="btn btn-primary" style="float:right">评论</button></a>	
 				</div>
 				<div style="clear:both"></div>		
 			</div>
