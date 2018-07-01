@@ -13,17 +13,17 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img class="carousel carouselImage" src="img/lunbo/javacircle.jpg" >
+      <a href="forecategory2?c2id=16"><img class="carousel carouselImage" src="img/lunbo/javacircle.jpg" ></a>
     </div>
     <div class="item">
-      <img  class="carouselImage" src="img/lunbo/2.jpg" >
+      <a href="forecategory2?c2id=17"><img  class="carouselImage" src="img/lunbo/2.jpg" ></a>
     </div>
     <div class="item">
-		<img  class="carouselImage" src="img/lunbo/3.jpg" >
+	  <a href="forecategory2?c2id=13"><img  class="carouselImage" src="img/lunbo/3.jpg" ></a>
     </div>
 
     <div class="item">
-        <img  class="carouselImage" src="img/lunbo/4.jpg" >
+      <a href="forecategory?c1id=26"><img  class="carouselImage" src="img/lunbo/4.jpg" ></a>
     </div>
 
   </div>

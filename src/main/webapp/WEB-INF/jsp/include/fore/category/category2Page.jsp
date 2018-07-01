@@ -13,7 +13,7 @@
 	<span><img height="40px" src="img/category/${c.id}.jpg"></span>
 	<span class="text-primary">${c.name}</span>
 	<span><b>下二级分类：</b></span>
-	<span><img height="40px" src="img/category/${c2.id}.jpg"></span>
+	<span><img height="40px" src="img/category2/${c2.id}.jpg"></span>
 	<span class="text-primary">${c2.name}相关信息</span>
 </div>
 
