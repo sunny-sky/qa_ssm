@@ -23,13 +23,15 @@
 	  <caption style="text-align:center"><h4>该二级分类下所属问题</h4></caption>
 	  <tr>
 	     <th>问题ID</th>
-	     <th>问题内容</th>	     
+	     <th>问题内容</th>
+	     <th>功能</th>		     
 	  </tr>
 	  <tbody>
 		  <c:forEach items="${qs }" var="q">
 		     <tr>
 		        <td>${q.id }</td> 
 		        <td>${q.content }</td>  
+		        <td><a href="forequestion?qid=${q.id}"><button>查看详情</button></a></td>
 		     </tr>
 		  </c:forEach>	 	 
 	  </tbody>

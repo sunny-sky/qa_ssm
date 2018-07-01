@@ -52,7 +52,8 @@ public class QuestionController {
         return "fore/askQuestion";
     }
     
-    @RequestMapping("Cascading_menu")
+//    [html] view plain copy
+    @RequestMapping(value="Cascading_menu",produces = "text/html;charset=UTF-8")
     @ResponseBody
     public String Cascading(@RequestParam("c1id") int c1id,HttpSession session)throws IOException {
     	System.out.println("传到controller的c1id为："+c1id);

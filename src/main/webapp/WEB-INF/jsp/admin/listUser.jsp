@@ -42,7 +42,7 @@
 					<td>${u.email}</td>
 					<td>${u.status}</td>
 					<td><a deleteLink="true" href="admin_user_blacklist?id=${u.id}"><span class="glyphicon glyphicon-remove"></span></a>
-					<a deleteLink="true" href="admin_user_rmblacklist?id=${u.id}"><span class="glyphicon glyphicon-ok"></span></a></td>
+					<a  href="admin_user_rmblacklist?id=${u.id}"><span class="glyphicon glyphicon-ok"></span></a></td>
 					
 				</tr>
 			</c:forEach>
