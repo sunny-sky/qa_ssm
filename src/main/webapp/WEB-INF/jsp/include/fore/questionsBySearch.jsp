@@ -17,8 +17,8 @@
 	
 
 		<div class="show1 productInfo">
-			<span class="monthDeal ">关注问题人数 <span class="productDealNumber">？笔</span></span>
-			<span class="productReview">回答总赞数<span class="productReviewNumber">？次</span></span>
+			<span class="monthDeal ">关注问题人数： <span class="productDealNumber">${q.cltProblemNum}</span></span>
+
 		</div>
 
 	</div>

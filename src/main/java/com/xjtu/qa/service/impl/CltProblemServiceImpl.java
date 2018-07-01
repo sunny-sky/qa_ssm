@@ -64,4 +64,18 @@ public class CltProblemServiceImpl implements CltProblemService {
 			cp.setQuestion(question);
 		}
 	}
+	
+	@Override
+	public int getCountByQid(int qid){
+		CltProblemExample example =new CltProblemExample();
+		example.createCriteria().andQidEqualTo(qid);
+		example.setOrderByClause("id desc");
+		List<CltProblem> cps =cltProblemMapper.selectByExample(example);
+		if(cps==null){
+			int num = 0;
+			return num;
+		}
+		int num = cps.size();
+		return num;
+	}
 }

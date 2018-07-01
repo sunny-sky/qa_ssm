@@ -196,6 +196,10 @@ public class ForeController {
         PageHelper.offsetPage(0,20);
         List<Question> qs= questionService.search(keyword);
         questionService.setAnswerAndCltProblemNum(qs);
+        for(Question q:qs){
+        	int num = cltProblemService.getCountByQid(q.getId());
+        	q.setCltProblemNum(num);
+        }
         model.addAttribute("qs",qs);
         return "fore/searchResult";
     }
