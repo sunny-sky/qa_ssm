@@ -39,6 +39,11 @@ public class AdminController {
 	@Autowired
 	CltProblemService cltProblemService;
 	
+	@RequestMapping("test")
+	public String test(){
+		return "test";
+	}
+	
 	
 	@RequestMapping("adminLoginCheck")
 	public String adminlogin(@RequestParam("name") String name, @RequestParam("password") String password, Model model, HttpSession session) {
